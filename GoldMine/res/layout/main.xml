@@ -6,13 +6,9 @@
     android:orientation="horizontal" >
 
     <LinearLayout android:orientation="vertical"
-		android:layout_height="wrap_content"
-		android:layout_width="200px"
-		android:id="@+id/title_menu"
-		android:layout_gravity="center_horizontal">
-		
+        android:layout_height="wrap_content" android:layout_width="fill_parent"
+        android:layout_gravity="center">
         <TextView android:text="@string/main_title"
-            android:id="@+id/main_title"
             android:layout_height="wrap_content" android:layout_width="wrap_content"
             android:layout_gravity="center" android:layout_marginBottom="25dip"
             android:textSize="24.5sp" />
