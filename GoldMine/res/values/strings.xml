@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, GoldMineActivity!</string>
     <string name="app_name">GoldMine</string>
+    <string name="main_title">GoldMine</string>
 
 </resources>
