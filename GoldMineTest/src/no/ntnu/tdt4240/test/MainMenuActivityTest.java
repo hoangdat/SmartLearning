@@ -19,7 +19,7 @@ public class MainMenuActivityTest extends ActivityInstrumentationTestCase2<MainM
 		super.setUp();
 		mActivity = getActivity();
 		mView = (TextView) mActivity.findViewById(no.ntnu.tdt4240.R.id.main_title);
-		resourceString = mActivity.getString(no.ntnu.tdt4240.R.string.hello);
+		resourceString = mActivity.getString(no.ntnu.tdt4240.R.string.main_title);
 	}
 	
 	public void testPrecondition() {
