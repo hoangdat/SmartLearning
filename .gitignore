@@ -1,4 +1,6 @@
 *.class
 .metadata
-bin/*
-gen/*
+GoldMine/bin/*
+GoldMine/gen/*
+GoldMineTest/gen/*
+GoldMineTest/bin/*
