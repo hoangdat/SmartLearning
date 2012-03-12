@@ -1,15 +1,15 @@
 package no.ntnu.tdt4240.models;
 
+import android.graphics.Canvas;
 import android.text.style.ForegroundColorSpan;
 
 public class GameBoard {
 	
 	private Cell[][] gameBoard;
-	
-	GameBoard(int height, int width){
+
+	GameBoard(int height, int width, int gold, int mines){
 		
-		this.gameBoard= new Cell[height][width];
-		
+		this.gameBoard= new Cell[height][width];	
 	}
 	
 	public void addGold(int gold){
@@ -59,13 +59,12 @@ public class GameBoard {
 							}		
 					gameBoard[a][b]=new Blank(null, nearGold, nearMines);
 						}
-				
 					}
-					
 				}
 			}	
 		 }
 	}
+
 	public void createBoard(int gold, int mines){
 		
 			addGold(gold);
@@ -73,4 +72,5 @@ public class GameBoard {
 			addBlanks();
 		
 	}
+	
 }
