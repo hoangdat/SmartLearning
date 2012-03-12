@@ -16,14 +16,14 @@ public class GameActivity extends Activity {
 		super.onCreate(savedInstanceState);
 	    
 		// hide title
-       // requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // Hide notification bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.game);
         
-        createPlayerViews();
+//        createPlayerViews();
         
         
 	}
@@ -32,7 +32,6 @@ public class GameActivity extends Activity {
 		Player one = new Player("Vegar");
 		PlayerView view = (PlayerView)findViewById(R.id.playerView1);
 		one.setPlayerView(view);
-		
 	}
 	
 }
