@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class SettingsActivity extends Activity {
+public class GameSelectActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

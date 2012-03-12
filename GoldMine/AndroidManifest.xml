@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".activities.MainMenuActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
             <intent-filter>
@@ -20,11 +20,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/settings_title" />
+            android:name=".activities.GameActivity"
+            android:label="@string/new_game_label" />
+        <activity
+            android:name=".activities.GameSelectActivity"
+            android:label="@string/game_select_label" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/settings_label" />
+        <activity
+            android:name=".activities.InstructionsActivity"
+            android:label="@string/instructions_label" 
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
         <activity
             android:name=".activities.AboutActivity"
-            android:label="@string/about_title"
+            android:label="@string/about_label"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
