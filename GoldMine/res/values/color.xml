@@ -5,4 +5,5 @@
     <color name="player2_background">#00ff00</color>
     <color name="gold">#DDDDDD</color>
     <color name="mine">#CCCCCC</color>
+    <color name="blank">#AAAAAA</color>
 </resources>

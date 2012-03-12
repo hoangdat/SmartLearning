@@ -62,9 +62,7 @@ public class GameBoard {
 							}		
 					gameBoard[a][b]=new Blank(null, nearGold, nearMines);
 						}
-				
 					}
-					
 				}
 			}	
 		 }
@@ -74,10 +72,9 @@ public class GameBoard {
 			addGold(gold);
 			addMines(mines);
 			addBlanks();
-		
 	}
 
-	public Cell[][] getGridArray() {
+	public Cell[][] getGameBoard() {
 		return gameBoard;
 	}
 }
