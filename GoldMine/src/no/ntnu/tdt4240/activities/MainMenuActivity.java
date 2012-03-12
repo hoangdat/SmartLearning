@@ -20,20 +20,35 @@ public class MainMenuActivity extends Activity implements android.view.View.OnCl
         setContentView(R.layout.main);
        
         // Click-handlers for buttons
+        View newgameButton = findViewById(R.id.new_button);
+        newgameButton.setOnClickListener(this);
         View settingsButton = findViewById(R.id.settings_button);
-        settingsButton.setOnClickListener(this);        
+        settingsButton.setOnClickListener(this); 
+        View instructionsButton = findViewById(R.id.instructions_button);
+        instructionsButton.setOnClickListener(this);
         View aboutButton = findViewById(R.id.about_button);
-        aboutButton.setOnClickListener(this);        
+        aboutButton.setOnClickListener(this);
+        View exitButton = findViewById(R.id.exit_button);
+        exitButton.setOnClickListener(this);
         
     }
 
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.new_button:
+			//startActivity(new Intent(this, GameActivity.class));
+			break;
 		case R.id.settings_button:
-			startActivity(new Intent(this, PreferencesActivity.class));
+			startActivity(new Intent(this, SettingsActivity.class));
+			break;
+		case R.id.instructions_button:
+			startActivity(new Intent(this, InstructionsActivity.class));
 			break;
 		case R.id.about_button:
 			startActivity(new Intent(this, AboutActivity.class));
+			break;
+		case R.id.exit_button:
+			System.exit(0);
 			break;
 		}
 	}
