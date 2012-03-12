@@ -26,6 +26,8 @@ public class PlayerView extends View {
 	}
 
 	public String getText() {
+		if (player == null)
+			return "Player1";
 		return player.getName();
 	}
 

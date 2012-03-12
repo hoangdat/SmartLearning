@@ -1,7 +1,6 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.views.PlayerView;
-import android.graphics.Color;
 
 public class Player {
 
