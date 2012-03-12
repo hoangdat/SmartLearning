@@ -12,5 +12,16 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="118dp"
         android:orientation="vertical" >
+        
+        
     </LinearLayout>
+
+    <no.ntnu.tdt4240.views.PlayerView
+        android:id="@+id/playerView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="51dp" />
+
 </RelativeLayout>

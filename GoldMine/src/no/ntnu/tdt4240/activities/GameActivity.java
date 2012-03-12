@@ -16,7 +16,7 @@ public class GameActivity extends Activity {
 		super.onCreate(savedInstanceState);
 	    
 		// hide title
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+       // requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // Hide notification bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -30,8 +30,8 @@ public class GameActivity extends Activity {
 
 	private void createPlayerViews() {		
 		Player one = new Player("Vegar");
-		PlayerView view1 = new PlayerView(this);
-		one.addPlayerView(view1);
+		PlayerView view = (PlayerView)findViewById(R.id.playerView1);
+		one.setPlayerView(view);
 		
 	}
 	
