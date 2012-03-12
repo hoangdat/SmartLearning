@@ -1,14 +1,21 @@
 package no.ntnu.tdt4240.activities;
 
 import no.ntnu.tdt4240.R;
-import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 
-public class SettingsActivity extends Activity {
+public class SettingsActivity extends PreferenceActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.about);
+		addPreferencesFromResource(R.xml.settings);
+		
+//		// Hide title
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        // Hide notification bar
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 	}
+	
 }
