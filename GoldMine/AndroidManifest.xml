@@ -23,7 +23,7 @@
             android:name=".PreferencesActivity"
             android:label="@string/settings_title" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="@string/about_title"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
