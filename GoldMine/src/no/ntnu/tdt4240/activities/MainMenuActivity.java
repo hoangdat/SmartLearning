@@ -1,0 +1,41 @@
+package no.ntnu.tdt4240.activities;
+
+import no.ntnu.tdt4240.R;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+public class MainMenuActivity extends Activity implements android.view.View.OnClickListener {
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Hide title
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // Hide notification bar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.main);
+       
+        // Click-handlers for buttons
+        View settingsButton = findViewById(R.id.settings_button);
+        settingsButton.setOnClickListener(this);        
+        View aboutButton = findViewById(R.id.about_button);
+        aboutButton.setOnClickListener(this);        
+        
+    }
+
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.settings_button:
+			startActivity(new Intent(this, PreferencesActivity.class));
+			break;
+		case R.id.about_button:
+			startActivity(new Intent(this, AboutActivity.class));
+			break;
+		}
+	}
+    
+}
