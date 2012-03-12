@@ -11,6 +11,7 @@ public class GameBoard {
 		
 	}
 	private GameBoard CreateBoard(int gold, int mines){
+		return null;
 		
 		
 	}
