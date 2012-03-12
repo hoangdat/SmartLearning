@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, GoldMineActivity!</string>
     <string name="app_name">GoldMine</string>
     <string name="main_title">GoldMine</string>
     <string name="new_game_label">New Game</string>
-    <string name="about_label">About</string>
-    <string name="exit_label">Exit</string>
+    <string name="game_select_label">Select Game Mode</string>
 	<string name="settings_label">Settings</string>
 	<string name="instructions_label">Instructions</string>
-	<string name="settings_title">Settings</string>
-	<string name="about_title">About</string>
+	<string name="about_label">About</string>
+    <string name="exit_label">Exit</string>
+    
 	<string name="about_text">
 		GoldMine is a game developed by an awesome student group at NTNU in 2012. 
 	</string>
 	
+	<string name="instructions_text">
+		Do you seriously need instructions? T_T
+	</string>
 	
 	
 </resources>

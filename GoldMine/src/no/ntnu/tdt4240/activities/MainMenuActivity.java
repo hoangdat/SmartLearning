@@ -36,7 +36,7 @@ public class MainMenuActivity extends Activity implements android.view.View.OnCl
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_button:
-			startActivity(new Intent(this, GameActivity.class));
+			startActivity(new Intent(this, GameSelectActivity.class));
 			break;
 		case R.id.settings_button:
 			startActivity(new Intent(this, SettingsActivity.class));
