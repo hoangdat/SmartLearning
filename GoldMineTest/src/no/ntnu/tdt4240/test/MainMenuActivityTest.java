@@ -1,6 +1,6 @@
 package no.ntnu.tdt4240.test;
 
-import no.ntnu.tdt4240.MainMenuActivity;
+import no.ntnu.tdt4240.activities.MainMenuActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
 
