@@ -7,9 +7,14 @@ import android.view.WindowManager;
 
 public class GameActivity extends Activity {
 
+	
+	GameBoard Board; 
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 	    
 		// hide title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
