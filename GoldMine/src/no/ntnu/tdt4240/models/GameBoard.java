@@ -1,10 +1,13 @@
 package no.ntnu.tdt4240.models;
 
+import no.ntnu.tdt4240.views.GridView;
+import no.ntnu.tdt4240.views.PlayerView;
 import android.text.style.ForegroundColorSpan;
 
 public class GameBoard {
 	
 	private Cell[][] gameBoard;
+	private GridView view;
 	
 	GameBoard(int height, int width){
 		
@@ -72,5 +75,9 @@ public class GameBoard {
 			addMines(mines);
 			addBlanks();
 		
+	}
+
+	public Cell[][] getGridArray() {
+		return gameBoard;
 	}
 }
