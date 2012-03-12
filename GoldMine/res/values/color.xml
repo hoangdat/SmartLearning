@@ -3,4 +3,5 @@
     <color name="background">#000000</color>
     <color name="gold">#DDDDDD</color>
     <color name="mine">#CCCCCC</color>
+    <color name="blank">#AAAAAA</color>
 </resources>
