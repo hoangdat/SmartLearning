@@ -15,10 +15,10 @@ public class SettingsActivity extends PreferenceActivity {
 	    
 		// hide title
 
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE); \\**//BUGGER SETTINGS\\**//
 
         // Hide notification bar
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         addPreferencesFromResource(R.xml.settings);
 
