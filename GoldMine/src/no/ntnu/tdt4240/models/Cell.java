@@ -6,7 +6,7 @@ public abstract class Cell {
 	private String type="cell";
 	private Canvas image;
 	
-	Cell(Canvas image){
+	Cell(){
 		
 		this.image=image;
 	}

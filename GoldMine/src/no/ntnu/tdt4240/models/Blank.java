@@ -10,8 +10,8 @@ public class Blank extends Cell {
 	private int nearGold;
 	private int nearMines;
 	
-	Blank(Canvas image, int mines, int gold) {
-		super(image);
+	Blank(int mines, int gold) {
+		
 		this.image=image;
 		clicked=false;
 		this.nearGold=gold;
