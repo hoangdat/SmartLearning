@@ -14,12 +14,14 @@ public class SettingsActivity extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 	    
 		// hide title
+
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // Hide notification bar
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         addPreferencesFromResource(R.xml.settings);
+
 	}
 	
 }

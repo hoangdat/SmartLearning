@@ -1,13 +1,26 @@
 package no.ntnu.tdt4240.models;
 
+<<<<<<< HEAD
 import android.graphics.Canvas;
+=======
+import no.ntnu.tdt4240.views.GridView;
+import no.ntnu.tdt4240.views.PlayerView;
+>>>>>>> c3ad0307abd7a08056f4ce6dfb6d6b4aa4f2b70f
 import android.text.style.ForegroundColorSpan;
 
 public class GameBoard {
 	
 	private Cell[][] gameBoard;
+<<<<<<< HEAD
 
 	GameBoard(int height, int width, int gold, int mines){
+=======
+	private GridView view;
+	
+	GameBoard(int height, int width){
+		
+		this.gameBoard= new Cell[height][width];
+>>>>>>> c3ad0307abd7a08056f4ce6dfb6d6b4aa4f2b70f
 		
 		this.gameBoard= new Cell[height][width];	
 	}
@@ -70,7 +83,10 @@ public class GameBoard {
 			addGold(gold);
 			addMines(mines);
 			addBlanks();
-		
+	}
+
+	public Cell[][] getGameBoard() {
+		return gameBoard;
 	}
 	
 }
