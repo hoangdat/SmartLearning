@@ -17,6 +17,7 @@ public class Mine extends Cell {
 
 	@Override
 	public void onClick() {
+	
 		
 	}
 	private void uppdateScore(Player activePlayer){
