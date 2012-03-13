@@ -27,5 +27,9 @@ public class Player {
 	public String getName() {
 		return name;
 	}
+
+	public long getScore() {
+		return score;
+	}
 	
 }
