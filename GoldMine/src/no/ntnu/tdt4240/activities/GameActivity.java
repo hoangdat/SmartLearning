@@ -8,6 +8,7 @@ import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -17,12 +18,7 @@ public class GameActivity extends Activity {
 	Player player1 = new Player("Vegar");
 	Player player2 = new Player("Jonas");	
 	GameBoard gameBoard;
-	GameMode gameMode;
 	
-
-	GameActivity(){
-		
-	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,5 +51,9 @@ public class GameActivity extends Activity {
 		else{
 			activePlayer=player1;
 		}
+	}
+	public void onTouchDown(Event event){
+		
+		
 	}
 }
