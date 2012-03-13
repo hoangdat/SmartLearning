@@ -4,24 +4,42 @@
     android:layout_height="fill_parent"
     android:orientation="horizontal" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+    <RelativeLayout
+        android:id="@+id/playerpanel"
+        android:layout_width="150px"
+        android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="118dp"
-        android:orientation="vertical" >
-        
-        
-    </LinearLayout>
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="0px" >
 
-    <no.ntnu.tdt4240.views.PlayerView
-        android:id="@+id/playerView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="51dp" />
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0px"
+            android:orientation="vertical"
+            android:layout_weight="1" >
+
+            <no.ntnu.tdt4240.views.PlayerView
+                android:id="@+id/playerView1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/player1_background"
+                android:layout_weight="1" />
+
+            <no.ntnu.tdt4240.views.PlayerView
+                android:id="@+id/playerView2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/player2_background" 
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

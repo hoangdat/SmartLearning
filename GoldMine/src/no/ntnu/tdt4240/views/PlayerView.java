@@ -43,7 +43,7 @@ public class PlayerView extends View {
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
-		canvas.drawText(getText(), 100, 100, paint);
+		canvas.drawText(getText(), 0, 22, paint);
 	}
 
 }

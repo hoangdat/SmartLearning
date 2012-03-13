@@ -35,23 +35,25 @@ public class GameActivity extends Activity {
 
         setContentView(R.layout.game);
         
-//        createPlayerViews();
+        createPlayerViews();
         
         
 	}
 
 	private void createPlayerViews() {		
-		Player one = new Player("Vegar");
-		Player two = new Player("Jon");
-		PlayerView view = (PlayerView)findViewById(R.id.playerView1);
-		one.setPlayerView(view);
+		Player player1 = new Player("Vegar");
+		PlayerView view1 = (PlayerView)findViewById(R.id.playerView1);
+		player1.setPlayerView(view1);
+		Player player2 = new Player("Jonas");
+		PlayerView view2 = (PlayerView)findViewById(R.id.playerView2);
+		player2.setPlayerView(view2);
 	}
 	private void switchPlayer(){
-		if(activePlayer==one){
-			activePlayer=two;	
+		if(activePlayer==player1){
+			activePlayer=player2;	
 		}
 		else{
-			activePlayer=one;
+			activePlayer=player1;
 		}
 	}
 	
