@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 
 public class Mine extends Cell {
 
-	private String type = "mine";
 	private boolean clicked;
 	private Canvas image;
 	

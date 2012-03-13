@@ -20,12 +20,12 @@ public class PlayerView extends View {
 
 	private void init() {
 		paint = new Paint();
-		paint.setTextSize(22);
+		paint.setTextSize(24);
 		paint.setColor(Color.BLUE);
-		paint.setStyle(Paint.Style.FILL);
+		paint.setStyle(Paint.Style.FILL_AND_STROKE);
 	}
 
-	public String getText() {
+	public String getName() {
 		if (player == null)
 			return "Player1";
 		return player.getName();
@@ -43,7 +43,22 @@ public class PlayerView extends View {
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
-		canvas.drawText(getText(), 0, 22, paint);
+		float nameWidth = paint.measureText(getName());
+		float startName = 75 - nameWidth/2;
+		
+		canvas.drawText(getName(), startName, 35, paint);
+		canvas.drawRect(25, 75, 125, 175, paint);
+		
+		float scoreWidth = paint.measureText(getScore());
+		float startScore = 75 - scoreWidth/2;
+		
+		canvas.drawText(getScore(), startScore, 250, paint);
+	}
+
+	private String getScore() {
+		if (player == null)
+			return "0";
+		return player.getScore() + "";
 	}
 
 }
