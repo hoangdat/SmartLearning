@@ -62,6 +62,7 @@ public class GameBoard {
 					for(int c=a-1; c<a+1;c++){
 						for(int d=b-1; d<b+1; d++){
 							
+							
 							if(gameBoard[c][d].getType()=="gold"){
 								nearGold++;
 							}
