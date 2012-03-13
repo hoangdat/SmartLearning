@@ -20,4 +20,10 @@ public class Gold extends Cell {
 		});
 	}
 
+	@Override
+	public void changeImage() {
+//		this.setBackgroundResource(R.drawable......)
+		
+	}
+
 }

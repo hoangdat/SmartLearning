@@ -9,15 +9,22 @@ import android.view.View.OnClickListener;
 public class Mine extends Cell {
 
 	private boolean clicked;
-	private Canvas image;
+	
 	
 	Mine(Context context) {
 		super(context);
+		clicked =false;
 		this.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-			
+				clicked=true;
+				changeImage();
+				
 			}
 		});
+	}
+	@Override
+	public void changeImage(){
+//		this.setBackgroundResource(R.drawable......)
 	}
 
 }

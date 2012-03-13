@@ -26,5 +26,11 @@ public class Blank extends Cell {
 		});
 
 	}
+
+	@Override
+	public void changeImage() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
