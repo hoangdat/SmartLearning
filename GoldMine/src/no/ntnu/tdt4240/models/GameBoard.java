@@ -12,13 +12,13 @@ public class GameBoard {
 
 	public GameBoard(){
 
-		this.gameBoard= new Cell[height+1][width+1];
+		this.gameBoard= new Cell[height][width];
 	}
 
 	public void addGold(int gold){
 		while(gold > 0){
-			int xValue = (int) (1+Math.random()*height);
-			int yValue = (int) (1+Math.random()*width);
+			int xValue = (int) (Math.random()*height);
+			int yValue = (int) (Math.random()*width);
 
 			if(gameBoard[xValue][yValue] == null){
 				gameBoard[xValue][yValue] = new Gold();
@@ -30,8 +30,8 @@ public class GameBoard {
 	public void addMines(int mines){
 		while(mines > 0){
 
-			int xValue=(int) (1+Math.random()*height);
-			int yValue=(int) (1+Math.random()*width);
+			int xValue=(int) (Math.random()*height);
+			int yValue=(int) (Math.random()*width);
 
 			if(gameBoard[xValue][yValue]==null){
 				gameBoard[xValue][yValue]= new Mine();
