@@ -26,7 +26,6 @@ public class GameBoard {
 			}
 		}
 	}
-
 	public void addMines(int mines){
 		while(mines > 0){
 
@@ -37,10 +36,8 @@ public class GameBoard {
 				gameBoard[xValue][yValue]= new Mine();
 				mines--;
 			}
-
 		}	
 	}
-
 	public void addBlanks(){
 
 		for(int a=1; a<height;a++){

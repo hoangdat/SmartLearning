@@ -18,7 +18,11 @@ public class GameActivity extends Activity {
 	Player player2 = new Player("Jonas");	
 	GameBoard gameBoard;
 	GameMode gameMode;
+	
 
+	GameActivity(){
+		
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,5 +56,4 @@ public class GameActivity extends Activity {
 			activePlayer=player1;
 		}
 	}
-	
 }
