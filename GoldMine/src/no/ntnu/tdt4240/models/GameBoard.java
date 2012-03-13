@@ -52,8 +52,8 @@ public class GameBoard {
 
 					for(int c=a-1; c<a+1;c++){
 						for(int d=b-1; d<b+1; d++){
+							if(c>0&&d>0&&c<height&&d<width){
 							
-
 							if(gameBoard[c][d].getType()=="gold"){
 								numberOfAdjacentGold++;
 							}
@@ -61,6 +61,7 @@ public class GameBoard {
 								numberOfAdjacentMines++;
 							}		
 							gameBoard[a][b]=new Blank(numberOfAdjacentGold, numberOfAdjacentMines);
+							}
 						}
 					}
 				}
