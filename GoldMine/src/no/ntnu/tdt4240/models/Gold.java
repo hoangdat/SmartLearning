@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 
 public class Gold extends Cell {
 
-	private String type = "gold";
+
 	private boolean clicked;
 	private Canvas image;
 	

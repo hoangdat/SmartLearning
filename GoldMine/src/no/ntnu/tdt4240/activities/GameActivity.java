@@ -2,6 +2,7 @@ package no.ntnu.tdt4240.activities;
 
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.GameBoard;
+import no.ntnu.tdt4240.models.GameMode;
 import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
@@ -16,7 +17,7 @@ public class GameActivity extends Activity {
 	Player player1 = new Player("Vegar");
 	Player player2 = new Player("Jonas");	
 	GameBoard gameBoard;
-	
+	GameMode gameMode;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

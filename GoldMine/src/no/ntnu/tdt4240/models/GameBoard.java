@@ -54,10 +54,10 @@ public class GameBoard {
 						for(int d=b-1; d<b+1; d++){
 							if(c>0&&d>0&&c<height&&d<width){
 							
-							if(gameBoard[c][d].getType()=="gold"){
+							if(gameBoard[c][d] instanceof Gold){
 								numberOfAdjacentGold++;
 							}
-							if(gameBoard[c][d].getType()=="Mine"){
+							if(gameBoard[c][d] instanceof Mine){
 								numberOfAdjacentMines++;
 							}		
 							gameBoard[a][b]=new Blank(numberOfAdjacentGold, numberOfAdjacentMines);
