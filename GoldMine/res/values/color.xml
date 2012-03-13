@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#000000</color>
-    <color name="gold">#DDDDDD</color>
-    <color name="mine">#CCCCCC</color>
-    <color name="blank">#AAAAAA</color>
+    <color name="gold">#EAC117</color>
+    <color name="mine">#747170</color>
+    <color name="blank">#ADDFFF</color>
 </resources>

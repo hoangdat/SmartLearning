@@ -6,12 +6,12 @@ import android.text.style.ForegroundColorSpan;
 
 public class GameBoard {
 	
-	private Cell[][] gameBoard;
+	private static Cell[][] gameBoard;
 	private GridView view;
 	
 	GameBoard(int height, int width){
 		
-		this.gameBoard= new Cell[height][width];
+		GameBoard.gameBoard = new Cell[height][width];
 		
 	}
 	
@@ -74,7 +74,7 @@ public class GameBoard {
 			addBlanks();
 	}
 
-	public Cell[][] getGameBoard() {
+	public static Cell[][] getGameBoard() {
 		return gameBoard;
 	}
 }
