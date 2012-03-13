@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.models;
 
+import no.ntnu.tdt4240.activities.GameActivity;
 import android.graphics.Canvas;
 
 public class Mine extends Cell {
@@ -16,7 +17,10 @@ public class Mine extends Cell {
 
 	@Override
 	public void onClick() {
-		// TODO Auto-generated method stub
+		
+	}
+	private void uppdateScore(Player activePlayer){
+		activePlayer.setScore(activePlayer.getScore()-200);
 		
 	}
 	

@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.models;
 
+import no.ntnu.tdt4240.activities.GameActivity;
 import android.graphics.Canvas;
 
 public class Gold extends Cell {
@@ -12,11 +13,17 @@ public class Gold extends Cell {
 		super(image);
 		this.image=image;
 		clicked=false;
+	
 	}
 
 	@Override
 	public void onClick() {
-		// TODO Auto-generated method stub
+		
+		
+
+	}
+	private void uppdateScore(Player activePlayer){
+		activePlayer.setScore(activePlayer.getScore()+100);
 		
 	}
 	
