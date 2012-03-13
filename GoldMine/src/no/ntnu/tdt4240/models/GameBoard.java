@@ -1,12 +1,8 @@
 package no.ntnu.tdt4240.models;
-import no.ntnu.tdt4240.views.GridView;
-import no.ntnu.tdt4240.views.PlayerView;
-import android.text.style.ForegroundColorSpan;
 
 public class GameBoard {
 
 	private Cell[][] gameBoard;
-	private GridView view;
 	private int height = 15;
 	private int width = 21;
 

@@ -12,6 +12,7 @@ public class Player {
 		this.name = name;
 		score = 0;
 	}
+	
 	public void setScore(long newScore){
 		score=newScore;
 	}
@@ -31,8 +32,4 @@ public class Player {
 		return name;
 	}
 
-	public long getScore() {
-		return score;
-	}
-	
 }
