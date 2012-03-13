@@ -16,9 +16,6 @@ public class Player {
 	public void setScore(long newScore){
 		score=newScore;
 	}
-	public long getScore(){
-		return score;
-	}
 	
 	public void setPlayerView(PlayerView view) {
 		this.view = view;
