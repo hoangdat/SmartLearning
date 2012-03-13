@@ -12,16 +12,8 @@ import android.view.WindowManager;
 public class GameActivity extends Activity {
 	
 	private Player activePlayer;
-	private Player one;
-	private Player two;
-
-	GameActivity(){
-		one=new Player("Vegar");
-		two=new Player("Jon");
-		activePlayer=one;
-		
-	}
-	
+	Player player1 = new Player("Vegar");
+	Player player2 = new Player("Jonas");	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +33,10 @@ public class GameActivity extends Activity {
 	}
 
 	private void createPlayerViews() {		
-		Player player1 = new Player("Vegar");
+
 		PlayerView view1 = (PlayerView)findViewById(R.id.playerView1);
 		player1.setPlayerView(view1);
-		Player player2 = new Player("Jonas");
+		
 		PlayerView view2 = (PlayerView)findViewById(R.id.playerView2);
 		player2.setPlayerView(view2);
 	}
