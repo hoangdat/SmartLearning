@@ -10,6 +10,8 @@ public abstract class Cell extends Button {
 		super(context);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 }
 	
