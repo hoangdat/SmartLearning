@@ -53,7 +53,7 @@ public class GameBoard {
 							if(gameBoard[c][d] instanceof Mine){
 								numberOfAdjacentMines++;
 							}		
-							gameBoard[a][b]=new Blank(numberOfAdjacentGold, numberOfAdjacentMines);
+							gameBoard[a][b]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
 							}
 						}
 					}
