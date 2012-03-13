@@ -17,6 +17,10 @@ public class Player {
 		score=newScore;
 	}
 	
+	public long getScore() {
+		return score;
+	}
+	
 	public void setPlayerView(PlayerView view) {
 		this.view = view;
 		if (view.getPlayer() == null)
