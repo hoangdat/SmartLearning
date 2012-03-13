@@ -17,7 +17,7 @@ public class GridView extends View {
     
 	public GridView(Context context) {
 		super(context);
-		gameboard = GameBoard.getGameBoard();
+//		gameboard = GameBoard.getGameBoard();
 	}
 	
 	protected void onDraw(Canvas canvas) {
