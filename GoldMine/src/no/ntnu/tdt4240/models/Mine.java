@@ -9,8 +9,8 @@ public class Mine extends Cell {
 	private boolean clicked;
 	private Canvas image;
 	
-	Mine(Canvas image) {
-		super(image);
+	Mine() {
+		
 		this.image=image;
 		clicked=false;
 	}

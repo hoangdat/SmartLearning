@@ -9,8 +9,8 @@ public class Gold extends Cell {
 	private boolean clicked;
 	private Canvas image;
 	
-	Gold(Canvas image) {
-		super(image);
+	Gold() {
+		
 		this.image=image;
 		clicked=false;
 	
