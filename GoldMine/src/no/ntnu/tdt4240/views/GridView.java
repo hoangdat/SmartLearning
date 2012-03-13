@@ -7,8 +7,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.View;
+import android.widget.TableLayout;
 
-public class GridView extends View {
+public class GridView extends TableLayout {
 
 	private static final int CELL_SIZE = 50;
     private static final int WIDTH = 1000 / CELL_SIZE;

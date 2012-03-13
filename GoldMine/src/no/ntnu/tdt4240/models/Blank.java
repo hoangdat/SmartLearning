@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.models;
 
+import android.content.Context;
 import android.graphics.Canvas;
 
 public class Blank extends Cell {
@@ -10,8 +11,8 @@ public class Blank extends Cell {
 	private int nearGold;
 	private int nearMines;
 	
-	Blank(int mines, int gold) {
-		
+	public Blank(Context context, int mines, int gold) {
+		super(context);
 		this.image=image;
 		clicked=false;
 		this.nearGold=gold;
@@ -19,12 +20,6 @@ public class Blank extends Cell {
 		
 	}
 
-	@Override
-	public void onClick() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 
 }
