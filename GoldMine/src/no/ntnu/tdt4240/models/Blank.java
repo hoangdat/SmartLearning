@@ -2,6 +2,7 @@ package no.ntnu.tdt4240.models;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -12,6 +13,7 @@ public class Blank extends Cell {
 	private Canvas image;
 	private int nrOfAdjacentGold;
 	private int nrOfAdjacentMines;
+	private Paint paint;
 	
 	Blank(Context context, int mines, int gold) {
 		super(context);
@@ -29,7 +31,7 @@ public class Blank extends Cell {
 
 	@Override
 	public void changeImage() {
-		// TODO Auto-generated method stub
+		paint=new Paint();
 		
 	}
 	
