@@ -8,15 +8,15 @@ import android.widget.TableRow;
 
 public class GameBoard {
 
-	private static final int CELL_SIZE = 50;
+	private Cell[][] gameBoard = new Cell[15][28];
 	//FIX: private
-	public Cell[][] gameBoard;
+	private int width = 28;
 	public int height = 15;
 	public int width = 21;
 
 	public GameBoard() {
-
-		this.gameBoard = new Cell[height][width];
+		
+		createBoard(10, 10);
 		createBoard(10, 10);
 	}
 
@@ -64,7 +64,7 @@ public class GameBoard {
 								if (gameBoard[c][d] instanceof Mine) {
 									numberOfAdjacentMines++;
 								}
-								gameBoard[a][b] = new Blank(null,
+							gameBoard[a][b]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
 										numberOfAdjacentGold,
 										numberOfAdjacentMines);
 							}

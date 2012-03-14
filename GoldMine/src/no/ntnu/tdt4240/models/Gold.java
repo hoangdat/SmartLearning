@@ -4,6 +4,8 @@ import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.activities.GameActivity;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 public class Gold extends Cell {
 
@@ -11,8 +13,23 @@ public class Gold extends Cell {
 	
 	Gold(Context context) {
 		super(context);
+//		this.setBackgroundResource(R.drawable......)
 		clicked=false;
-		this.setBackgroundResource(R.color.gold);
+		this.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				if(!clicked){
+					clicked=true;
+					changeImage();	
+				}
+				
+			}
+		});
+	}
+
+	@Override
+	public void changeImage() {
+//		this.setBackgroundResource(R.drawable......)
+		
 	}
 
 }

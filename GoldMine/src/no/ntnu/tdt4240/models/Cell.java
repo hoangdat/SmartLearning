@@ -1,17 +1,16 @@
 package no.ntnu.tdt4240.models;
 
 import android.content.Context;
+import android.view.*;
 import android.widget.Button;
 
 public abstract class Cell extends Button {
 
 	public Cell(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		
 	}
-
+	public abstract void changeImage();
 }
-	
-	
-	
+
 
