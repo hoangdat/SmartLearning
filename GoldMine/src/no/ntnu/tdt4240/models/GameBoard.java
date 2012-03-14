@@ -17,6 +17,7 @@ public class GameBoard {
 	public GameBoard() {
 
 		this.gameBoard = new Cell[height][width];
+		createBoard(10, 10);
 	}
 
 	public void addGold(int gold) {

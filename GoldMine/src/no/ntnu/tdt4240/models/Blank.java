@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.models;
 
+import no.ntnu.tdt4240.R;
 import android.content.Context;
 import android.graphics.Canvas;
 
@@ -17,6 +18,7 @@ public class Blank extends Cell {
 		clicked=false;
 		this.nearGold=gold;
 		this.nearMines=mines;
+		this.setBackgroundResource(R.color.blank);
 		
 	}
 
