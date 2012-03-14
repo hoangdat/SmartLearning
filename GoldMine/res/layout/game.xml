@@ -19,8 +19,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="0px"
-            android:orientation="vertical"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:orientation="vertical" >
 
             <no.ntnu.tdt4240.views.PlayerView
                 android:id="@+id/playerView1"
@@ -28,8 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:background="@color/player1_background"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@color/player1_background" />
 
             <no.ntnu.tdt4240.views.PlayerView
                 android:id="@+id/playerView2"
@@ -37,9 +37,26 @@
                 android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:background="@color/player2_background" 
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:background="@color/player2_background" />
         </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/MineFieldView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TableLayout
+            android:id="@+id/MineField"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_span="3"
+            android:layout_toRightOf="@+id/playerpanel"
+            android:gravity="bottom"
+            android:padding="5dip"
+            android:stretchColumns="*" >
+        </TableLayout>
     </RelativeLayout>
 
 </RelativeLayout>
