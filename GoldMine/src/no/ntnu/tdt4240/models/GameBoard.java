@@ -2,13 +2,13 @@ package no.ntnu.tdt4240.models;
 
 public class GameBoard {
 
-	private Cell[][] gameBoard;
+	private Cell[][] gameBoard = new Cell[15][28];
 	private int height = 15;
-	private int width = 21;
+	private int width = 28;
 
 	public GameBoard(){
+		
 		createBoard(10, 10);
-		this.gameBoard= new Cell[height][width];
 	}
 
 	public void addGold(int gold){
