@@ -5,22 +5,26 @@ import java.util.Observer;
 
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.GameBoard;
-import no.ntnu.tdt4240.models.GameMode;
 import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 
 public class GameActivity extends Activity implements Observer{
 	
+	private static final int CELL_SIZE = 50;
 	private Player activePlayer;
 	Player player1 = new Player("Vegar");
 	Player player2 = new Player("Jonas");	
 	GameBoard gameBoard;
+	TableLayout mineField;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,12 @@ public class GameActivity extends Activity implements Observer{
         setContentView(R.layout.game);
         
         createPlayerViews();
+//        gameBoard = new GameBoard();
+        mineField = (TableLayout)findViewById(R.id.MineField);
+     
         
-        
+        //   mineFieldView.showMineField(mineField);
+      	showMineField();
 	}
 
 	private void createPlayerViews() {		
@@ -47,6 +55,7 @@ public class GameActivity extends Activity implements Observer{
 		PlayerView view2 = (PlayerView)findViewById(R.id.playerView2);
 		player2.setPlayerView(view2);
 	}
+	
 	private void switchPlayer(){
 		if(activePlayer==player1){
 			activePlayer=player2;	
@@ -66,4 +75,33 @@ public class GameActivity extends Activity implements Observer{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void showMineField() {
+		// remember we will not show 0th and last Row and Columns
+		// they are used for calculation purposes only
+		for (int row = 0; row < 16; row++) {
+			TableRow tableRow = new TableRow(this);
+			tableRow.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
+                    LayoutParams.WRAP_CONTENT));
+
+			 Button b = new Button(this);
+             b.setText("Dynamic Button");
+             b.setLayoutParams(new LayoutParams(
+                       LayoutParams.FILL_PARENT,
+                       LayoutParams.WRAP_CONTENT));
+			tableRow.addView(b);
+             
+//			for (int column = 0; column < gameBoard.width; column++) {
+//				gameBoard.gameBoard[row][column].setLayoutParams(new LayoutParams(
+//						CELL_SIZE, CELL_SIZE));
+//				
+//				tableRow.addView(gameBoard.gameBoard[row][column]);
+//			}
+			
+			mineField.addView(tableRow, new TableLayout.LayoutParams(
+                    LayoutParams.FILL_PARENT,
+                    LayoutParams.WRAP_CONTENT));
+		}
+	}	
+	
 }
