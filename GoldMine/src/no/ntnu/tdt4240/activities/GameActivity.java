@@ -1,5 +1,8 @@
 package no.ntnu.tdt4240.activities;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.models.GameMode;
@@ -12,7 +15,7 @@ import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class GameActivity extends Activity {
+public class GameActivity extends Activity implements Observer{
 	
 	private Player activePlayer;
 	Player player1 = new Player("Vegar");
@@ -53,7 +56,14 @@ public class GameActivity extends Activity {
 		}
 	}
 	public void onTouchDown(Event event){
+	
+	}
+	public void udateScore(int scoreChange){
 		
+	}
+
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
 		
 	}
 }

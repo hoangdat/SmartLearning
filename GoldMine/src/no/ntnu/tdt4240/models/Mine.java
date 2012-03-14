@@ -17,9 +17,10 @@ public class Mine extends Cell {
 		clicked =false;
 		this.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				clicked=true;
-				changeImage();
-				
+				if(!clicked){
+					clicked=true;
+					changeImage();	
+				}
 			}
 		});
 	}

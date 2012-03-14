@@ -7,7 +7,7 @@ public class GameBoard {
 	private int width = 21;
 
 	public GameBoard(){
-
+		createBoard(10, 10);
 		this.gameBoard= new Cell[height][width];
 	}
 

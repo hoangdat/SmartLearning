@@ -16,7 +16,11 @@ public class Gold extends Cell {
 		clicked=false;
 		this.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-			
+				if(!clicked){
+					clicked=true;
+					changeImage();	
+				}
+				
 			}
 		});
 	}

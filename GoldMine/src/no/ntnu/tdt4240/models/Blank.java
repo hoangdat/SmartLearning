@@ -17,6 +17,7 @@ public class Blank extends Cell {
 	private int nrOfAdjacentMines;
 	private Paint goldNr;
 	private Paint mineNr;
+	private Canvas canvas;
 	
 	Blank(Context context, int mines, int gold) {
 		super(context);
@@ -26,16 +27,23 @@ public class Blank extends Cell {
 		this.nrOfAdjacentMines=mines;
 		this.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-			
+				
+
 			}
 		});
 	
 		initPaint();
 	}
-
+	protected void onDraw() {
+		
+		this.canvas=canvas;
+		
+		
+	}
 	@Override
 	public void changeImage() {
 //		this.setBackgroundResource(R.drawable......)
+		canvas.drawText(Integer.toString(nrOfAdjacentGold),4f, 7f, goldNr);
 		
 		
 	}
