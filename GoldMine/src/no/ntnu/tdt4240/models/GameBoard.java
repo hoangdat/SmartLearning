@@ -36,24 +36,24 @@ public class GameBoard {
 	}
 	public void addBlanks(){
 
-		for(int a=1; a<height;a++){
-			for(int b=1; b<width; b++){
+		for(int row=1; row<height;row++){
+			for(int col=1; col<width; col++){
 
-				if(gameBoard[a][b]==null){
+				if(gameBoard[row][col]==null){
 					int numberOfAdjacentGold = 0;
 					int numberOfAdjacentMines = 0;
 
-					for(int c=a-1; c<a+1;c++){
-						for(int d=b-1; d<b+1; d++){
-							if(c>0&&d>0&&c<height&&d<width){
+					for(int row2=row-1; row2<row+1;row2++){
+						for(int col2=col-1; col2<col+1; col2++){
+							if(row2>0&&col2>0&&row2<height&&col2<width){
 							
-							if(gameBoard[c][d] instanceof Gold){
+							if(gameBoard[row2][col2] instanceof Gold){
 								numberOfAdjacentGold++;
 							}
-							if(gameBoard[c][d] instanceof Mine){
+							if(gameBoard[row2][col2] instanceof Mine){
 								numberOfAdjacentMines++;
 							}		
-							gameBoard[a][b]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
+							gameBoard[row][col]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
 							}
 						}
 					}
