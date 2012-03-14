@@ -13,6 +13,7 @@ public class Mine extends Cell {
 	
 	Mine(Context context) {
 		super(context);
+//		this.setBackgroundResource(R.drawable......)
 		clicked =false;
 		this.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {

@@ -12,6 +12,7 @@ public class Gold extends Cell {
 	
 	Gold(Context context) {
 		super(context);
+//		this.setBackgroundResource(R.drawable......)
 		clicked=false;
 		this.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {

@@ -1,7 +1,9 @@
 package no.ntnu.tdt4240.models;
 
+import no.ntnu.tdt4240.R.color;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,11 +15,12 @@ public class Blank extends Cell {
 	private Canvas image;
 	private int nrOfAdjacentGold;
 	private int nrOfAdjacentMines;
-	private Paint paint;
+	private Paint goldNr;
+	private Paint mineNr;
 	
 	Blank(Context context, int mines, int gold) {
 		super(context);
-		this.image=image;
+//		this.setBackgroundResource(R.drawable......)
 		clicked=false;
 		this.nrOfAdjacentGold=gold;
 		this.nrOfAdjacentMines=mines;
@@ -26,13 +29,26 @@ public class Blank extends Cell {
 			
 			}
 		});
-
+	
+		initPaint();
 	}
 
 	@Override
 	public void changeImage() {
-		paint=new Paint();
+//		this.setBackgroundResource(R.drawable......)
 		
+		
+	}
+	public void initPaint(){
+		goldNr = new Paint();
+		goldNr.setTextSize(15);
+		goldNr.setColor(color.gold);
+		goldNr.setStyle(Paint.Style.FILL_AND_STROKE);
+		
+		mineNr = new Paint();
+		mineNr.setTextSize(15);
+		mineNr.setColor(color.mine);
+		mineNr.setStyle(Paint.Style.FILL_AND_STROKE);
 	}
 	
 }
