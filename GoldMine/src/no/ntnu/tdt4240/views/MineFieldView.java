@@ -32,20 +32,20 @@ public class MineFieldView extends View {
 	public void showMineField(TableLayout mineField) {
 		// remember we will not show 0th and last Row and Columns
 		// they are used for calculation purposes only
-		for (int row = 0; row < gameboard.height; row++) {
-			TableRow tableRow = new TableRow(getContext());
-			tableRow.setLayoutParams(new LayoutParams(
-							CELL_SIZE * gameboard.width, CELL_SIZE));
-
-			for (int column = 0; column < gameboard.width; column++) {
-				gameboard.gameBoard[row][column].setLayoutParams(new LayoutParams(
-						CELL_SIZE, CELL_SIZE));
-				
-				tableRow.addView(gameboard.gameBoard[row][column]);
-			}
-			mineField.addView(tableRow, new TableLayout.LayoutParams(
-					CELL_SIZE * gameboard.width, CELL_SIZE));
-		}
+//		for (int row = 0; row < gameboard.height; row++) {
+//			TableRow tableRow = new TableRow(getContext());
+//			tableRow.setLayoutParams(new LayoutParams(
+//							CELL_SIZE * gameboard.width, CELL_SIZE));
+//
+//			for (int column = 0; column < gameboard.width; column++) {
+//				gameboard.gameBoard[row][column].setLayoutParams(new LayoutParams(
+//						CELL_SIZE, CELL_SIZE));
+//				
+//				tableRow.addView(gameboard.gameBoard[row][column]);
+//			}
+//			mineField.addView(tableRow, new TableLayout.LayoutParams(
+//					CELL_SIZE * gameboard.width, CELL_SIZE));
+//		}
 	}	
 	/*
 	protected void onDraw(Canvas canvas) {

@@ -12,13 +12,26 @@ public class GameBoard {
 	//FIX: private
 	private int width = 28;
 	public int height = 15;
-	public int width = 21;
 
-	public GameBoard() {
-		
-		createBoard(10, 10);
-		createBoard(10, 10);
+	public Context context;
+	
+	public GameBoard(Context context) {
+		this.context = context;
+		createDummyBoard();
 	}
+
+	
+	private void createDummyBoard() {
+		for (int col = 0; col < width; col++) {
+			for (int row = 0; row < height; row++) {
+				gameBoard[row][col] = new Gold(context);
+			}
+		}
+		
+		
+	}
+
+
 
 	public void addGold(int gold) {
 		while (gold > 0) {
@@ -65,8 +78,6 @@ public class GameBoard {
 									numberOfAdjacentMines++;
 								}
 							gameBoard[a][b]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
-										numberOfAdjacentGold,
-										numberOfAdjacentMines);
 							}
 						}
 					}
