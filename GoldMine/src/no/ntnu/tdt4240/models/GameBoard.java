@@ -1,17 +1,12 @@
 package no.ntnu.tdt4240.models;
 
 import android.content.Context;
-import android.text.InputFilter.LengthFilter;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 
 public class GameBoard {
 
 	private Cell[][] gameBoard = new Cell[15][28];
-	//FIX: private
-	private int width = 28;
-	public int height = 15;
+	private int nrRows = 15;
+	private int nrCols = 28;
 
 	public Context context;
 	
@@ -22,71 +17,64 @@ public class GameBoard {
 
 	
 	private void createDummyBoard() {
-		for (int col = 0; col < width; col++) {
-			for (int row = 0; row < height; row++) {
+		for (int row = 0; row < nrRows; row++) {
+			for (int col = 0; col < nrCols; col++) {
 				gameBoard[row][col] = new Gold(context);
 			}
 		}
-		
-		
 	}
 
+	public void addGold(int gold){
+		while(gold > 0){
+			int xValue = (int) (Math.random()*nrRows);
+			int yValue = (int) (Math.random()*nrCols);
 
-
-	public void addGold(int gold) {
-		while (gold > 0) {
-			int xValue = (int) (Math.random() * height);
-			int yValue = (int) (Math.random() * width);
-
-			if (gameBoard[xValue][yValue] == null) {
+			if(gameBoard[xValue][yValue] == null){
 				gameBoard[xValue][yValue] = new Gold(null);
 				gold--;
 			}
 		}
 	}
+	public void addMines(int mines){
+		while(mines > 0){
 
-	public void addMines(int mines) {
-		while (mines > 0) {
+			int xValue=(int) (Math.random()*nrRows);
+			int yValue=(int) (Math.random()*nrCols);
 
-			int xValue = (int) (Math.random() * height);
-			int yValue = (int) (Math.random() * width);
-
-			if (gameBoard[xValue][yValue] == null) {
-				gameBoard[xValue][yValue] = new Mine(null);
+			if(gameBoard[xValue][yValue]==null){
+				gameBoard[xValue][yValue]= new Mine(null);
 				mines--;
 			}
-		}
+		}	
 	}
+	public void addBlanks(){
 
-	public void addBlanks() {
+		for(int row=1; row<nrRows;row++){
+			for(int col=1; col<nrCols; col++){
 
-		for (int a = 1; a < height; a++) {
-			for (int b = 1; b < width; b++) {
-
-				if (gameBoard[a][b] == null) {
+				if(gameBoard[row][col]==null){
 					int numberOfAdjacentGold = 0;
 					int numberOfAdjacentMines = 0;
 
-					for (int c = a - 1; c < a + 1; c++) {
-						for (int d = b - 1; d < b + 1; d++) {
-							if (c > 0 && d > 0 && c < height && d < width) {
-
-								if (gameBoard[c][d] instanceof Gold) {
-									numberOfAdjacentGold++;
+					for(int rowCheck=row-1; rowCheck<row+1;rowCheck++){
+						for(int colCheck=col-1; colCheck<col+1; colCheck++){
+							if(rowCheck>0 &&colCheck>0 	&&rowCheck<nrRows &&colCheck<nrCols){
+								if(gameBoard[rowCheck][colCheck] != null){
+									if(gameBoard[rowCheck][colCheck] instanceof Gold)
+										numberOfAdjacentGold++;
+									if(gameBoard[rowCheck][colCheck] instanceof Mine)
+										numberOfAdjacentMines++;
 								}
-								if (gameBoard[c][d] instanceof Mine) {
-									numberOfAdjacentMines++;
-								}
-							gameBoard[a][b]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
+								gameBoard[row][col]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
 							}
 						}
 					}
 				}
-			}
+			}	
 		}
 	}
 
-	public void createBoard(int gold, int mines) {
+	public void createBoard(int gold, int mines){
 		addGold(gold);
 		addMines(mines);
 		addBlanks();
@@ -95,6 +83,4 @@ public class GameBoard {
 	public Cell[][] getGameBoard() {
 		return gameBoard;
 	}
-
-
 }

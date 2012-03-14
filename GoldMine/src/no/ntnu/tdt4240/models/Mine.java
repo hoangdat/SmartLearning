@@ -1,30 +1,29 @@
 package no.ntnu.tdt4240.models;
+<<<<<<< HEAD
+=======
 
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.activities.GameActivity;
+>>>>>>> 94eb45ba081dc30d6bafa093252981679a1886f0
 import android.content.Context;
-import android.graphics.Canvas;
-import android.view.View;
-import android.view.View.OnClickListener;
 
 public class Mine extends Cell {
 
 	private boolean clicked;
 	
-	
 	Mine(Context context) {
 		super(context);
 //		this.setBackgroundResource(R.drawable......)
-		clicked =false;
-		this.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				if(!clicked){
-					clicked=true;
-					changeImage();	
-				}
-			}
-		});
+		clicked = false;
 	}
+	
+	public void onClick(){
+		if(!clicked){
+			clicked=true;
+			changeImage();	
+		}
+	}
+	
 	@Override
 	public void changeImage(){
 //		this.setBackgroundResource(R.drawable......)
