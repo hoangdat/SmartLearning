@@ -8,7 +8,6 @@ public class Gold extends Cell {
 
 	Gold(Context context){
 		super(context);
-		this.setBackgroundResource(R.drawable.unclickedbutton);
 		clicked = false;
 	}
 

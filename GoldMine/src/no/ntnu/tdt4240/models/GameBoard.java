@@ -10,7 +10,7 @@ public class GameBoard{
 	public GameBoard(Context context){
 		gameBoard = new Cell[15][28];
 		numberOfRows = 15; 
-		numberOfCols = 28;
+		numberOfCols = 22;
 		this.context = context;
 		createBoard(30,30);
 		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
@@ -60,6 +60,7 @@ public class GameBoard{
 						if(gameBoard[currentRow][currentCol] instanceof Mine)
 							adjacentMines++;
 					}
+					
 					gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
 				}
 	}
@@ -84,6 +85,6 @@ public class GameBoard{
 		return gameBoard[x][y];
 	}
 	public Cell getCell(int pos){
-		return getCell(pos/numberOfCols, pos%numberOfRows); 
+		return getCell(pos/numberOfRows, pos%numberOfCols); 
 	}
 }
