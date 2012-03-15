@@ -4,7 +4,7 @@ import android.R;
 
 public class GoldMode extends GameMode{
 	
-	//int numberOfMines=R;
+	//int numberOfMines=R.xml.;
 	int numberOfGold;
 	
 	

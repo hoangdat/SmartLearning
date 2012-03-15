@@ -21,7 +21,7 @@ public class GameBoard{
 			int xValue = (int)(Math.random()*numberOfRows);
 			int yValue = (int)(Math.random()*numberOfCols);
 			if(gameBoard[xValue][yValue] == null){
-				gameBoard[xValue][yValue] = new Gold(null);
+				gameBoard[xValue][yValue] = new Gold(context);
 				gold--;
 			}
 		}
@@ -32,7 +32,7 @@ public class GameBoard{
 			int xValue=(int) (Math.random()*numberOfRows);
 			int yValue=(int) (Math.random()*numberOfCols);
 			if(gameBoard[xValue][yValue]==null){
-				gameBoard[xValue][yValue]= new Mine(null);
+				gameBoard[xValue][yValue]= new Mine(context);
 				mines--;
 			}
 		}	
