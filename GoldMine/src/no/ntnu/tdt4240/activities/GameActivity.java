@@ -43,10 +43,11 @@ public class GameActivity extends Activity implements Observer {
 		gameBoard = new GameBoard(this);
 		createPlayerViews();
 		// gameBoard = new GameBoard();
-		mineField = (GridView) findViewById(R.id.MineField);
-
+//		mineField = (GridView) findViewById(R.id.MineField);
+//		mineField.setAdapter(new MineFieldAdapter(this, gameBoard));
+		
 		// mineFieldView.showMineField(mineField);
-		showMineField();
+//		showMineField();s
 		
 	}
 
@@ -80,9 +81,9 @@ public class GameActivity extends Activity implements Observer {
 
 	}
 
-	private void showMineField() {
-		
-	}
+//	private void showMineField() {
+//		
+//	}
 	
 /*
 	private void showMineField() {
