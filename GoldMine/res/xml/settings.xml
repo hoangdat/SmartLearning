@@ -10,12 +10,28 @@
         android:summary="Set default game mode"
         android:title="Game mode" />
 
+    <EditTextPreference 
+        android:name="Number of mines"
+        android:summary="Set number of mines"
+        android:defaultValue="45"
+        android:title="Number of mines"
+        android:key="numberofminesvar"
+        android:inputType="number"/>
+    
+    <EditTextPreference 
+        android:name="Amount of gold"
+        android:summary="Set amount of gold"
+        android:defaultValue="20"
+        android:title="Amount of gold"
+        android:key="numberofgoldvar"
+        android:inputType="number"/>
+    
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="timeattackvar"
         android:summary="Enable or disable time attack"
         android:title="Time Attack" />
-    
+
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="backgroundmusicvar"
@@ -26,5 +42,6 @@
         android:key="soundeffectsvar"
         android:summary="Enable or disable sound effects"
         android:title="Sound effects" />
-
+    
+    
 </PreferenceScreen>
