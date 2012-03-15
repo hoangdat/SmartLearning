@@ -16,7 +16,7 @@ public class GameBoard{
 		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 
-	public void addGold(int gold){
+	private void addGold(int gold){
 		while(gold > 0){
 			int xValue = (int)(Math.random()*numberOfRows);
 			int yValue = (int)(Math.random()*numberOfCols);
@@ -27,7 +27,7 @@ public class GameBoard{
 		}
 	}
 
-	public void addMines(int mines){
+	private void addMines(int mines){
 		while(mines > 0){
 			int xValue=(int) (Math.random()*numberOfRows);
 			int yValue=(int) (Math.random()*numberOfCols);
@@ -42,27 +42,26 @@ public class GameBoard{
 		return rowCheck >= 0 && colCheck >= 0 && rowCheck <= numberOfRows && colCheck <= numberOfCols;
 	}
 
-	public void addBlanks(){
+	private void addBlanks(){
 		for(int row = 0; row < numberOfRows; row++)
 			for(int col = 0; col < numberOfCols; col++)
 				if(gameBoard[row][col] == null)
 					countAdjacentAndCreateBlank(row, col);
 	}
-	
-	public void countAdjacentAndCreateBlank(int x, int y){
+
+	private void countAdjacentAndCreateBlank(int x, int y){
 		int adjacentGold = 0, adjacentMines = 0;
-		for(int currentRow = x-1; currentRow < x+1; currentRow++) //start one up from the cell...
-			for(int currentCol = y-1; currentCol < y+1; currentCol++) //...and one left from the cell
+		for(int currentRow = x-1; currentRow < x+1; currentRow++){ //start one up from the cell...
+			for(int currentCol = y-1; currentCol < y+1; currentCol++){ //...and one left from the cell
 				if(isInsideBounds(currentRow, currentCol)){
-					if(gameBoard[currentRow][currentCol] != null){
-						if(gameBoard[currentRow][currentCol] instanceof Gold)
-							adjacentGold++;
-						if(gameBoard[currentRow][currentCol] instanceof Mine)
-							adjacentMines++;
-					}
-					
-					gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
+					if(gameBoard[currentRow][currentCol] instanceof Gold)
+						adjacentGold++;
+					if(gameBoard[currentRow][currentCol] instanceof Mine)
+						adjacentMines++;
 				}
+			}
+		}
+		gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
 	}
 
 	public void createBoard(int gold, int mines){
