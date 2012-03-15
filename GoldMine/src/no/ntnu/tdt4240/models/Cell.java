@@ -10,6 +10,7 @@ public abstract class Cell extends View {
 		this.setBackgroundResource(R.drawable.unclickedbutton);
 	}
 	public abstract void changeImage();
+	public abstract void onClick();
 }
 
 

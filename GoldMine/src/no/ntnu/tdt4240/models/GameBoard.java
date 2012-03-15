@@ -12,7 +12,7 @@ public class GameBoard{
 		numberOfRows = 15; 
 		numberOfCols = 22;
 		this.context = context;
-		createBoard(30,30);
+		createBoard(30, 30);
 		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 

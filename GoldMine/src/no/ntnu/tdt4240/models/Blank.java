@@ -12,7 +12,7 @@ public class Blank extends Cell{
 	private int nrOfAdjacentMines;
 	private Paint goldPaint;
 	private Paint minePaint;
-	private Canvas canvas;
+	private Canvas mCanvas;
 
 	Blank(Context context, int mines, int gold) {
 		super(context);
@@ -56,11 +56,15 @@ public class Blank extends Cell{
 		}
 		else{
 			this.setBackgroundResource(R.drawable.buttonclickednonblank);
-			canvas.drawText(Integer.toString(nrOfAdjacentGold),4f, 7f, goldPaint);
-			canvas.drawText(Integer.toString(nrOfAdjacentMines),4f, 7f, minePaint);
+			mCanvas.drawText(nrOfAdjacentGold + "",4, 7, goldPaint);
+			mCanvas.drawText(nrOfAdjacentMines + "",24, 7, minePaint);
 		}
-		
-
+	}
+	
+	@Override
+	protected void onDraw(Canvas canvas) {
+		mCanvas = canvas;
+		super.onDraw(canvas);
 	}
 
 }
