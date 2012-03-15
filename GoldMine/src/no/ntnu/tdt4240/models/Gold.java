@@ -8,7 +8,7 @@ public class Gold extends Cell {
 
 	Gold(Context context){
 		super(context);
-//		this.setBackgroundResource(R.drawable......)
+		this.setBackgroundResource(R.drawable.unclickedbutton);
 		clicked = false;
 	}
 
@@ -21,7 +21,7 @@ public class Gold extends Cell {
 
 	@Override
 	public void changeImage(){
-//		this.setBackgroundResource(R.drawable......)
+	this.setBackgroundResource(R.drawable.gold);
 	}
 
 }
