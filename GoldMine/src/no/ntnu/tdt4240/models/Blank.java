@@ -1,12 +1,10 @@
 package no.ntnu.tdt4240.models;
-
 import no.ntnu.tdt4240.R.color;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-public class Blank extends Cell {
-
+public class Blank extends Cell{
 
 	private boolean clicked;
 	private int nrOfAdjacentGold;
@@ -19,8 +17,8 @@ public class Blank extends Cell {
 		super(context);
 		//		this.setBackgroundResource(R.drawable......)
 		clicked=false;
-		this.nrOfAdjacentGold=gold;
-		this.nrOfAdjacentMines=mines;	
+		this.nrOfAdjacentGold = gold;
+		this.nrOfAdjacentMines = mines;	
 		initPaint();
 	}
 

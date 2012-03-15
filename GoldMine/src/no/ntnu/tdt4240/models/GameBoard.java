@@ -1,76 +1,67 @@
 package no.ntnu.tdt4240.models;
-
 import android.content.Context;
 
-public class GameBoard {
+public class GameBoard{
 
-	private Cell[][] gameBoard = new Cell[15][28];
-	private int nrRows = 15;
-	private int nrCols = 28;
-
+	private Cell[][] gameBoard;
+	private int numberOfRows, numberOfCols;
 	public Context context;
-	
-	public GameBoard(Context context) {
+
+	public GameBoard(Context context){
+		gameBoard = new Cell[15][28];
+		numberOfRows = 15; 
+		numberOfCols = 28;
 		this.context = context;
-		createDummyBoard();
-	}
-	
-	private void createDummyBoard() {
-		for (int row = 0; row < nrRows; row++) {
-			for (int col = 0; col < nrCols; col++) {
-				gameBoard[row][col] = new Gold(context);
-			}
-		}
+		createBoard(30,30);
+		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 
 	public void addGold(int gold){
 		while(gold > 0){
-			int xValue = (int) (Math.random()*nrRows);
-			int yValue = (int) (Math.random()*nrCols);
-
+			int xValue = (int)(Math.random()*numberOfRows);
+			int yValue = (int)(Math.random()*numberOfCols);
 			if(gameBoard[xValue][yValue] == null){
 				gameBoard[xValue][yValue] = new Gold(null);
 				gold--;
 			}
 		}
 	}
+
 	public void addMines(int mines){
 		while(mines > 0){
-
-			int xValue=(int) (Math.random()*nrRows);
-			int yValue=(int) (Math.random()*nrCols);
-
+			int xValue=(int) (Math.random()*numberOfRows);
+			int yValue=(int) (Math.random()*numberOfCols);
 			if(gameBoard[xValue][yValue]==null){
 				gameBoard[xValue][yValue]= new Mine(null);
 				mines--;
 			}
 		}	
 	}
+
+	private boolean isInsideBounds(int rowCheck, int colCheck) {
+		return rowCheck >= 0 && colCheck >= 0 && rowCheck <= numberOfRows && colCheck <= numberOfCols;
+	}
+
 	public void addBlanks(){
-
-		for(int row=1; row<nrRows;row++){
-			for(int col=1; col<nrCols; col++){
-
-				if(gameBoard[row][col]==null){
-					int numberOfAdjacentGold = 0;
-					int numberOfAdjacentMines = 0;
-
-					for(int rowCheck=row-1; rowCheck<row+1;rowCheck++){
-						for(int colCheck=col-1; colCheck<col+1; colCheck++){
-							if(rowCheck>0 &&colCheck>0 	&&rowCheck<nrRows &&colCheck<nrCols){
-								if(gameBoard[rowCheck][colCheck] != null){
-									if(gameBoard[rowCheck][colCheck] instanceof Gold)
-										numberOfAdjacentGold++;
-									if(gameBoard[rowCheck][colCheck] instanceof Mine)
-										numberOfAdjacentMines++;
-								}
-								gameBoard[row][col]=new Blank(null, numberOfAdjacentGold, numberOfAdjacentMines);
-							}
-						}
+		for(int row = 0; row < numberOfRows; row++)
+			for(int col = 0; col < numberOfCols; col++)
+				if(gameBoard[row][col] == null)
+					countAdjacentAndCreateBlank(row, col);
+	}
+	
+	public void countAdjacentAndCreateBlank(int x, int y){
+		int adjacentGold = 0, adjacentMines = 0;
+		for(int currentRow = x-1; currentRow < x+1; currentRow++) //start one up from the cell...
+			for(int currentCol = y-1; currentCol < y+1; currentCol++) //...and one left from the cell
+				if(isInsideBounds(currentRow, currentCol)){
+					if(gameBoard[currentRow][currentCol] != null){
+						if(gameBoard[currentRow][currentCol] instanceof Gold)
+							adjacentGold++;
+						if(gameBoard[currentRow][currentCol] instanceof Mine)
+							adjacentMines++;
 					}
+					gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
 				}
-			}	
-		}
 	}
 
 	public void createBoard(int gold, int mines){
@@ -82,11 +73,11 @@ public class GameBoard {
 	public Cell[][] getGameBoard() {
 		return gameBoard;
 	}
-	
-	public int getNrRows(){
-		return nrRows;
+
+	public int getNumberOfRows(){
+		return numberOfRows;
 	}
-	public int getNrCols(){
-		return nrCols;
+	public int getNumberOfCols(){
+		return numberOfCols;
 	}
 }

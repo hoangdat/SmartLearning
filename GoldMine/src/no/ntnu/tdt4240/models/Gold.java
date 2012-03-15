@@ -1,10 +1,5 @@
 package no.ntnu.tdt4240.models;
-
-
-
 import no.ntnu.tdt4240.R;
-import no.ntnu.tdt4240.activities.GameActivity;
-
 import android.content.Context;
 
 public class Gold extends Cell {
