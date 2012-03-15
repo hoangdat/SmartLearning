@@ -1,10 +1,5 @@
 package no.ntnu.tdt4240.models;
-
-
-
 import no.ntnu.tdt4240.R;
-import no.ntnu.tdt4240.activities.GameActivity;
-
 import android.content.Context;
 
 public class Mine extends Cell {
@@ -13,7 +8,7 @@ public class Mine extends Cell {
 	
 	Mine(Context context) {
 		super(context);
-//		this.setBackgroundResource(R.drawable......)
+		//this.setBackgroundResource(R.drawable)
 		clicked = false;
 	}
 	
