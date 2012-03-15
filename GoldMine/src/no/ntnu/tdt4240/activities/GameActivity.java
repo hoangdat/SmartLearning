@@ -44,7 +44,6 @@ public class GameActivity extends Activity implements Observer {
 		createPlayerViews();
 		mineField = (GridView) findViewById(R.id.MineField);
 		mineField.setAdapter(new MineFieldAdapter(this, gameBoard));
-		
 		// mineFieldView.showMineField(mineField);
 //		showMineField();s
 		

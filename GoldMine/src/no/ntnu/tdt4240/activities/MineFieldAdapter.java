@@ -42,9 +42,9 @@ public class MineFieldAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Cell cell;
 		if (convertView == null) { // if it's not recycled, initialize some
-			cell = mGameBoard.getGameBoard();
-			cell.setLayoutParams(new GridView.LayoutParams(85, 85));
-			cell.setPadding(8, 8, 8, 8);
+			cell = mGameBoard.getCell(position);
+			cell.setLayoutParams(new GridView.LayoutParams(40, 40));
+			cell.setPadding(0, 0,0,0);
 		} else {
 			cell = (Cell) convertView;
 		}
