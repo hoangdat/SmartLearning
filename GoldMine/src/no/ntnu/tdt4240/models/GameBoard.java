@@ -80,4 +80,10 @@ public class GameBoard{
 	public int getNumberOfCols(){
 		return numberOfCols;
 	}
+	public Cell getCell(int x, int y){
+		return gameBoard[x][y];
+	}
+	public Cell getCell(int pos){
+		return getCell(pos/numberOfCols, pos%numberOfRows); 
+	}
 }
