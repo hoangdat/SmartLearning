@@ -60,7 +60,7 @@
             android:columnWidth="40px"
             android:gravity="fill"
             android:horizontalSpacing="0px"
-            android:numColumns="22"
+            android:numColumns="21"
             android:stretchMode="columnWidth"
             android:verticalSpacing="0px"
         	android:layout_margin="0px" />

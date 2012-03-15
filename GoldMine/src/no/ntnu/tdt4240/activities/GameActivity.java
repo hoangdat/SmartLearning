@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import no.ntnu.tdt4240.R;
+import no.ntnu.tdt4240.models.Cell;
 import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.PlayerView;
@@ -11,17 +12,20 @@ import android.app.Activity;
 import android.graphics.Path.FillType;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Event;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
+import android.widget.Toast;
 
 public class GameActivity extends Activity implements Observer {
 
-	private static final int CELL_SIZE = 50;
 	private Player activePlayer;
 	Player player1 = new Player("Vegar");
 	Player player2 = new Player("Jonas");
@@ -43,8 +47,25 @@ public class GameActivity extends Activity implements Observer {
 		gameBoard = new GameBoard(this);
 		createPlayerViews();
 		mineField = (GridView) findViewById(R.id.MineField);
-		mineField.setAdapter(new MineFieldAdapter(this, gameBoard));
+		mineField.setPadding(0, 0, 0, 0);
 		
+		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
+		mineField.setAdapter(mineFieldAdapter);
+		mineField.setOnItemClickListener(new OnItemClickListener() {
+
+			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
+				int row =position/gameBoard.getNumberOfCols();
+	            int col=position%gameBoard.getNumberOfCols();
+	            
+	            if(((Cell)view).needsRipple()) {
+	            	gameBoard.rippleFrom(row, col);
+	            }
+	            	
+	            ((Cell)view).onClick();
+	            
+			}
+
+		});
 	}
 
 	private void createPlayerViews() {

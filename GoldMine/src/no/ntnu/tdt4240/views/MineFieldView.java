@@ -2,7 +2,6 @@ package no.ntnu.tdt4240.views;
 
 import java.security.PublicKey;
 
-import no.ntnu.tdt4240.models.Cell;
 import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.R;
 import android.content.Context;

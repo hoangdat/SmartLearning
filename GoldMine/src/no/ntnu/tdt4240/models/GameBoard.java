@@ -8,9 +8,9 @@ public class GameBoard{
 	public Context context;
 
 	public GameBoard(Context context){
-		gameBoard = new Cell[15][28];
 		numberOfRows = 15; 
 		numberOfCols = 22;
+		gameBoard = new Cell[numberOfRows][numberOfCols];
 		this.context = context;
 		createBoard(30, 30);
 		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
@@ -38,8 +38,8 @@ public class GameBoard{
 		}	
 	}
 
-	private boolean isInsideBounds(int rowCheck, int colCheck) {
-		return rowCheck >= 0 && colCheck >= 0 && rowCheck <= numberOfRows && colCheck <= numberOfCols;
+	private boolean isInsideBounds(int row, int col) {
+		return row >= 0 && col >= 0 && row < numberOfRows && col < numberOfCols;
 	}
 
 	private void addBlanks(){
@@ -51,8 +51,8 @@ public class GameBoard{
 
 	private void countAdjacentAndCreateBlank(int x, int y){
 		int adjacentGold = 0, adjacentMines = 0;
-		for(int currentRow = x-1; currentRow < x+1; currentRow++){ //start one up from the cell...
-			for(int currentCol = y-1; currentCol < y+1; currentCol++){ //...and one left from the cell
+		for(int currentRow = x-1; currentRow <= x+1; currentRow++){ //start one up from the cell...
+			for(int currentCol = y-1; currentCol <= y+1; currentCol++){ //...and one left from the cell
 				if(isInsideBounds(currentRow, currentCol)){
 					if(gameBoard[currentRow][currentCol] instanceof Gold)
 						adjacentGold++;
@@ -85,5 +85,11 @@ public class GameBoard{
 	}
 	public Cell getCell(int pos){
 		return getCell( pos/numberOfCols, pos%numberOfCols); 
+	}
+
+	public void rippleFrom(int row, int col) {
+		/*
+		 * Trykk på alle cellene rundt, sjekke om de skal ripples også videre
+		 */
 	}
 }
