@@ -40,17 +40,16 @@ public class MineFieldAdapter extends BaseAdapter {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Button buttonView;
+		Cell cell;
 		if (convertView == null) { // if it's not recycled, initialize some
-									// attributes
-			buttonView = new Button(mContext);
-			buttonView.setLayoutParams(new GridView.LayoutParams(85, 85));
-			buttonView.setPadding(8, 8, 8, 8);
+			cell = mGameBoard.getGameBoard();
+			cell.setLayoutParams(new GridView.LayoutParams(85, 85));
+			cell.setPadding(8, 8, 8, 8);
 		} else {
-			buttonView = (Button) convertView;
+			cell = (Cell) convertView;
 		}
 
-		return buttonView;
+		return cell;
 	}
 
 }
