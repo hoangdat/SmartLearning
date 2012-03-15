@@ -1,14 +1,27 @@
 package no.ntnu.tdt4240.models;
 
+import android.content.Context;
+
 public class GameBoard {
 
 	private Cell[][] gameBoard = new Cell[15][28];
 	private int nrRows = 15;
 	private int nrCols = 28;
 
-	public GameBoard(){
+	public Context context;
+	
+	public GameBoard(Context context) {
+		this.context = context;
+		createDummyBoard();
+	}
 
-		createBoard(10, 10);
+	
+	private void createDummyBoard() {
+		for (int row = 0; row < nrRows; row++) {
+			for (int col = 0; col < nrCols; col++) {
+				gameBoard[row][col] = new Gold(context);
+			}
+		}
 	}
 
 	public void addGold(int gold){
