@@ -60,6 +60,7 @@ public class GameBoard{
 						if(gameBoard[currentRow][currentCol] instanceof Mine)
 							adjacentMines++;
 					}
+					
 					gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
 				}
 	}
@@ -84,6 +85,6 @@ public class GameBoard{
 		return gameBoard[x][y];
 	}
 	public Cell getCell(int pos){
-		return getCell(pos/numberOfCols, pos%numberOfRows); 
+		return getCell(pos/numberOfRows, pos%numberOfCols); 
 	}
 }

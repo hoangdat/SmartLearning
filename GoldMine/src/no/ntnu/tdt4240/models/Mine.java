@@ -8,7 +8,6 @@ public class Mine extends Cell {
 	
 	Mine(Context context) {
 		super(context);
-		this.setBackgroundResource(R.drawable.unclickedbutton);
 		clicked = false;
 	}
 	

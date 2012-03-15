@@ -16,7 +16,6 @@ public class Blank extends Cell{
 
 	Blank(Context context, int mines, int gold) {
 		super(context);
-		this.setBackgroundResource(R.drawable.unclickedbutton);
 		clicked=false;
 		this.nrOfAdjacentGold = gold;
 		this.nrOfAdjacentMines = mines;	
@@ -27,6 +26,7 @@ public class Blank extends Cell{
 		if(!clicked){
 			clicked = true;
  			changeImage();
+ 			
  		
  			
 		}
