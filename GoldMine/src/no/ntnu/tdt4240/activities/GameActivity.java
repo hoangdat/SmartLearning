@@ -81,8 +81,8 @@ public class GameActivity extends Activity implements Observer {
 	private void showMineField() {
 		// remember we will not show 0th and last Row and Columns
 		// they are used for calculation purposes only
-		int numberOfColumnsInMineField = gameBoard.getGameBoard()[0].length;
 		int numberOfRowsInMineField = gameBoard.getGameBoard().length;
+		int numberOfColumnsInMineField = gameBoard.getGameBoard()[0].length;
 		for (int row = 0; row < numberOfRowsInMineField; row++) {
 			TableRow tableRow = new TableRow(this);
 			tableRow.setLayoutParams(new LayoutParams(
@@ -91,7 +91,12 @@ public class GameActivity extends Activity implements Observer {
 			for (int column = 1; column < numberOfColumnsInMineField + 1; column++) {
 				gameBoard.getGameBoard()[row][column].setLayoutParams(new LayoutParams(CELL_SIZE, CELL_SIZE));
 				gameBoard.getGameBoard()[row][column].setPadding(0, 0, 0, 0);
-				tableRow.addView(gameBoard.getGameBoard()[row][column]);
+				
+				Button b = new Button(this);
+				b.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT));
+				b.setText(row);
+				tableRow.addView(b);
+				//tableRow.addView(gameBoard.getGameBoard()[row][column]);
 			}
 			mineField.addView(tableRow, new TableLayout.LayoutParams(
 					CELL_SIZE * numberOfColumnsInMineField, CELL_SIZE));

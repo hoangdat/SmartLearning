@@ -12,7 +12,7 @@ public class GameBoard {
 	
 	public GameBoard(Context context) {
 		this.context = context;
-		createDummyBoard();
+		createBoard(10,10);
 	}
 
 	
