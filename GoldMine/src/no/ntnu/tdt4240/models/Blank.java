@@ -27,13 +27,12 @@ public class Blank extends Cell{
 		if(!clicked){
 			clicked = true;
  			changeImage();
- 			if(nrOfAdjacentGold==0&& nrOfAdjacentMines==0){
- 				
- 			}
+ 		
  			
 		}
 	}
-	//private void check 
+	
+	
 
 	public void initPaint(){
 		goldPaint = new Paint();
