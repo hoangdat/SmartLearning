@@ -85,6 +85,6 @@ public class GameBoard{
 		return gameBoard[x][y];
 	}
 	public Cell getCell(int pos){
-		return getCell(pos/numberOfRows, pos%numberOfCols); 
+		return getCell( pos/numberOfCols, pos%numberOfCols); 
 	}
 }
