@@ -45,18 +45,22 @@
     <RelativeLayout
         android:id="@+id/MineFieldView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/playerpanel"
+        android:paddingLeft="0px"
+        android:paddingTop="0px" >
 
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <GridView
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/MineField"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_span="3"
-            android:layout_toRightOf="@+id/playerpanel"
-            android:gravity="bottom"
-            android:padding="5dip"
-            android:stretchColumns="*" 
-        />
+            android:columnWidth="40px"
+            android:gravity="fill"
+            android:horizontalSpacing="0px"
+            android:numColumns="22"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="0px" />
     </RelativeLayout>
-
 </RelativeLayout>

@@ -23,6 +23,7 @@ public class GameActivityTest extends ActivityInstrumentationTestCase2<GameActiv
 	
 	public void testPrecondition() {
 		assertNotNull(mView);
+		
 	}
 	public void testText() {
 

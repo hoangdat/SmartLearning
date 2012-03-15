@@ -13,7 +13,7 @@ public class GameBoard{
 		numberOfCols = 22;
 		this.context = context;
 		createBoard(30,30);
-		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
+		//ta hensyn til at det ikke kan vÃ¦re flere miner/gull enn ruter
 	}
 
 	public void addGold(int gold){
@@ -85,6 +85,6 @@ public class GameBoard{
 		return gameBoard[x][y];
 	}
 	public Cell getCell(int pos){
-		return getCell(pos/numberOfRows, pos%numberOfCols); 
+		return getCell( pos/numberOfCols, pos%numberOfCols); 
 	}
 }
