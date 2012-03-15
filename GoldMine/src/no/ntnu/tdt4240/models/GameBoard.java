@@ -51,15 +51,17 @@ public class GameBoard{
 
 	private void countAdjacentAndCreateBlank(int x, int y){
 		int adjacentGold = 0, adjacentMines = 0;
-		for(int currentRow = x-1; currentRow < x+1; currentRow++) //start one up from the cell...
-			for(int currentCol = y-1; currentCol < y+1; currentCol++) //...and one left from the cell
+		for(int currentRow = x-1; currentRow < x+1; currentRow++){ //start one up from the cell...
+			for(int currentCol = y-1; currentCol < y+1; currentCol++){ //...and one left from the cell
 				if(isInsideBounds(currentRow, currentCol)){
 					if(gameBoard[currentRow][currentCol] instanceof Gold)
 						adjacentGold++;
 					if(gameBoard[currentRow][currentCol] instanceof Mine)
 						adjacentMines++;
-					gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
 				}
+			}
+		}
+		gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
 	}
 
 	public void createBoard(int gold, int mines){
