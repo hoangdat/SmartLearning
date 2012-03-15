@@ -70,4 +70,13 @@ public class GameBoard {
 	public Cell[][] getGameBoard() {
 		return gameBoard;
 	}
+	public static void main(String[] args){
+		new GameBoard();
+	}
+	public int getNrRows(){
+		return nrRows;
+	}
+	public int getNrCols(){
+		return nrCols;
+	}
 }
