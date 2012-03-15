@@ -47,7 +47,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/playerpanel" >
+        android:layout_toRightOf="@+id/playerpanel"
+        android:paddingLeft="0px"
+        android:paddingTop="0px" >
 
         <GridView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -57,7 +59,7 @@
             android:columnWidth="40px"
             android:gravity="fill"
             android:horizontalSpacing="0px"
-            android:numColumns="auto_fit"
+            android:numColumns="22"
             android:stretchMode="columnWidth"
             android:verticalSpacing="0px" />
     </RelativeLayout>
