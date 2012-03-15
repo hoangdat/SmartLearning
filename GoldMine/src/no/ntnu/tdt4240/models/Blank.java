@@ -1,4 +1,5 @@
 package no.ntnu.tdt4240.models;
+import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.R.color;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -15,7 +16,7 @@ public class Blank extends Cell{
 
 	Blank(Context context, int mines, int gold) {
 		super(context);
-		//		this.setBackgroundResource(R.drawable......)
+		this.setBackgroundResource(R.drawable.unclickedbutton);
 		clicked=false;
 		this.nrOfAdjacentGold = gold;
 		this.nrOfAdjacentMines = mines;	
@@ -25,12 +26,14 @@ public class Blank extends Cell{
 	public void onClick(){
 		if(!clicked){
 			clicked = true;
-			//		
-			changeImage();
-			canvas.drawText(Integer.toString(nrOfAdjacentGold),4f, 7f, goldPaint);
-			canvas.drawText(Integer.toString(nrOfAdjacentMines),4f, 7f, goldPaint);
+ 			changeImage();
+ 			if(nrOfAdjacentGold==0&& nrOfAdjacentMines==0){
+ 				
+ 			}
+ 			
 		}
 	}
+	//private void check 
 
 	public void initPaint(){
 		goldPaint = new Paint();
@@ -45,7 +48,15 @@ public class Blank extends Cell{
 
 	@Override
 	public void changeImage() {
-//		this.setBackgroundResource(R.drawable......)
+		if(nrOfAdjacentGold==0&& nrOfAdjacentMines==0){
+			this.setBackgroundResource(R.drawable.buttonclickedblank);
+		}
+		else{
+			this.setBackgroundResource(R.drawable.buttonclickednonblank);
+			canvas.drawText(Integer.toString(nrOfAdjacentGold),4f, 7f, goldPaint);
+			canvas.drawText(Integer.toString(nrOfAdjacentMines),4f, 7f, minePaint);
+		}
+		
 
 	}
 
