@@ -26,10 +26,14 @@ public class Blank extends Cell{
 		if(!clicked){
 			clicked = true;
  			changeImage();
- 			
- 		
- 			
+ 			if(nrOfAdjacentGold==0&& nrOfAdjacentMines==0){
+ 				rippleBlank();
+ 			}
 		}
+	}
+	
+	public void rippleBlank(){
+		
 	}
 	
 	
