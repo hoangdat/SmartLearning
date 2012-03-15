@@ -8,11 +8,13 @@ import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
+import android.graphics.Path.FillType;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
@@ -24,7 +26,7 @@ public class GameActivity extends Activity implements Observer {
 	Player player1 = new Player("Vegar");
 	Player player2 = new Player("Jonas");
 	GameBoard gameBoard;
-	TableLayout mineField;
+	GridView mineField;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +43,11 @@ public class GameActivity extends Activity implements Observer {
 		gameBoard = new GameBoard(this);
 		createPlayerViews();
 		// gameBoard = new GameBoard();
-		mineField = (TableLayout) findViewById(R.id.MineField);
+		mineField = (GridView) findViewById(R.id.MineField);
 
 		// mineFieldView.showMineField(mineField);
 		showMineField();
+		
 	}
 
 	private void createPlayerViews() {
@@ -77,30 +80,32 @@ public class GameActivity extends Activity implements Observer {
 
 	}
 
-
 	private void showMineField() {
-		// remember we will not show 0th and last Row and Columns
-		// they are used for calculation purposes only
+		
+	}
+	
+/*
+	private void showMineField() {
 		int numberOfRowsInMineField = gameBoard.getGameBoard().length;
 		int numberOfColumnsInMineField = gameBoard.getGameBoard()[0].length;
 		for (int row = 0; row < numberOfRowsInMineField; row++) {
 			TableRow tableRow = new TableRow(this);
-			tableRow.setLayoutParams(new LayoutParams(
-					CELL_SIZE * numberOfColumnsInMineField, CELL_SIZE));
-
+			tableRow.setLayoutParams(new LayoutParams(CELL_SIZE * numberOfColumnsInMineField, LayoutParams.WRAP_CONTENT));
+//
 			for (int column = 1; column < numberOfColumnsInMineField + 1; column++) {
-				gameBoard.getGameBoard()[row][column].setLayoutParams(new LayoutParams(CELL_SIZE, CELL_SIZE));
-				gameBoard.getGameBoard()[row][column].setPadding(0, 0, 0, 0);
-				
+////				gameBoard.getGameBoard()[row][column].setLayoutParams(new LayoutParams(CELL_SIZE, CELL_SIZE));
+////				gameBoard.getGameBoard()[row][column].setPadding(0, 0, 0, 0);
+//				
 				Button b = new Button(this);
-				b.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT));
-				b.setText(row);
+				b.setLayoutParams(new LayoutParams(CELL_SIZE, CELL_SIZE));
+				b.setText(row + "");
 				tableRow.addView(b);
-				//tableRow.addView(gameBoard.getGameBoard()[row][column]);
+//				//tableRow.addView(gameBoard.getGameBoard()[row][column]);
 			}
 			mineField.addView(tableRow, new TableLayout.LayoutParams(
-					CELL_SIZE * numberOfColumnsInMineField, CELL_SIZE));
+					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 		}
 	}
+*/
 
 }

@@ -12,9 +12,8 @@ public class GameBoard {
 	
 	public GameBoard(Context context) {
 		this.context = context;
-		createBoard(10,10);
+		createDummyBoard();
 	}
-
 	
 	private void createDummyBoard() {
 		for (int row = 0; row < nrRows; row++) {
@@ -83,9 +82,7 @@ public class GameBoard {
 	public Cell[][] getGameBoard() {
 		return gameBoard;
 	}
-	public static void main(String[] args){
-		new GameBoard();
-	}
+	
 	public int getNrRows(){
 		return nrRows;
 	}
