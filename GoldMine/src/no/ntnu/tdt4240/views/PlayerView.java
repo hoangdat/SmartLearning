@@ -44,7 +44,7 @@ public class PlayerView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		float nameWidth = paint.measureText(getName());
-		float startName = getWidth() - nameWidth/2;
+		float startName = getWidth()/2 - nameWidth/2;
 		
 		canvas.drawText(getName(), startName, 35, paint);
 		canvas.drawRect(25, 75, 125, 175, paint);
