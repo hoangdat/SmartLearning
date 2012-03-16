@@ -13,7 +13,7 @@ public class SettingsActivity extends PreferenceActivity {
 	
 	private static final String NUMBER_OF_MINES = "numberofminesvar";
 	private static final String NUMBER_OF_MINES_DEFAULT = "45";
-    private static final String AMOUNT_OF_GOLD = "amountofgold";
+    private static final String AMOUNT_OF_GOLD = "amountofgoldvar";
     private static final String AMOUNT_OF_GOLD_DEFAULT = "25";
 
 	@Override

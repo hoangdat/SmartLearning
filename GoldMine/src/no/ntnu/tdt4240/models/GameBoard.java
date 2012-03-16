@@ -1,4 +1,6 @@
 package no.ntnu.tdt4240.models;
+import java.awt.font.NumericShaper;
+
 import no.ntnu.tdt4240.activities.SettingsActivity;
 import android.content.Context;
 
@@ -14,9 +16,9 @@ public class GameBoard{
 		numberOfCols = 22;
 		gameBoard = new Cell[numberOfRows][numberOfCols];
 		this.context = context;
-//		numberofmines = SettingsActivity.getNumberOfMines(context);
-//		amountofgold = SettingsActivity.getAmountOfGold(context);
-		createBoard(30, 30);
+		numberofmines = SettingsActivity.getNumberOfMines(context);
+		amountofgold = SettingsActivity.getAmountOfGold(context);
+		createBoard(amountofgold, numberofmines);
 		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 
