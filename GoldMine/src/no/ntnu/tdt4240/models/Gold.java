@@ -9,13 +9,6 @@ public class Gold extends Cell {
 		super(context);
 	}
 
-	public void onClick(){
-		if(!isClicked()){
-			click();
-			changeImage();
-		}
-	}
-
 	@Override
 	public void changeImage(){
 		this.setBackgroundResource(R.drawable.gold);

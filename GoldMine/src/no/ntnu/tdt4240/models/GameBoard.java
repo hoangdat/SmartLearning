@@ -51,12 +51,12 @@ public class GameBoard{
 
 	private void countAdjacentAndCreateBlank(int x, int y){
 		int adjacentGold = 0, adjacentMines = 0;
-		for(int currentRow = x-1; currentRow <= x+1; currentRow++){ //start one up from the cell...
-			for(int currentCol = y-1; currentCol <= y+1; currentCol++){ //...and one left from the cell
-				if(isInsideBounds(currentRow, currentCol)){
-					if(gameBoard[currentRow][currentCol] instanceof Gold)
+		for(int row = x-1; row <= x+1; row++){ //start one up from the cell...
+			for(int col = y-1; col <= y+1; col++){ //...and one left from the cell
+				if(isInsideBounds(row, col)){
+					if(gameBoard[row][col] instanceof Gold)
 						adjacentGold++;
-					if(gameBoard[currentRow][currentCol] instanceof Mine)
+					if(gameBoard[row][col] instanceof Mine)
 						adjacentMines++;
 				}
 			}
@@ -88,8 +88,12 @@ public class GameBoard{
 	}
 
 	public void rippleFrom(int row, int col) {
-		/*
-		 * Trykk på alle cellene rundt, sjekke om de skal ripples også videre
-		 */
+		
+		for (int x = col -1; x < col+2; col++) {
+			for (int y = row-1; y < row+2; row++){
+				
+			}
+		}
+		
 	}
 }
