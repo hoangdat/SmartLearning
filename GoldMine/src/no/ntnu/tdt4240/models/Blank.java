@@ -35,11 +35,11 @@ public class Blank extends Cell{
 	public void initPaint(){
 		goldPaint = new Paint();
 		goldPaint.setTextSize(26);
-		goldPaint.setColor(Color.YELLOW);
+		goldPaint.setColor(getResources().getColor(R.color.gold));
 		goldPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 		minePaint = new Paint();
 		minePaint.setTextSize(26);
-		minePaint.setColor(Color.GRAY);
+		minePaint.setColor(getResources().getColor(R.color.mine));
 		minePaint.setStyle(Paint.Style.FILL_AND_STROKE);
 	}
 
