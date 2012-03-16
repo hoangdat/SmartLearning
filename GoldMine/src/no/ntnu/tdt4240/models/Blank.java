@@ -12,7 +12,7 @@ public class Blank extends Cell{
 	private Paint goldPaint;
 	private Paint minePaint;
 
-	Blank(Context context, int mines, int gold) {
+	Blank(Context context, int gold, int mines) {
 		super(context);
 		this.numberOfAdjacentGold = gold;
 		this.numberOfAdjacentMines = mines;	
