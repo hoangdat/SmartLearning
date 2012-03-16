@@ -1,18 +1,22 @@
 package no.ntnu.tdt4240.models;
+import no.ntnu.tdt4240.activities.SettingsActivity;
 import android.content.Context;
 
 public class GameBoard{
 
 	private Cell[][] gameBoard;
-	private int numberOfRows, numberOfCols;
+	private int numberOfRows, numberOfCols, numberofmines, amountofgold;
 	public Context context;
+	
 
 	public GameBoard(Context context){
 		numberOfRows = 15; 
 		numberOfCols = 22;
 		gameBoard = new Cell[numberOfRows][numberOfCols];
 		this.context = context;
-		createBoard(30, 30);
+		numberofmines = SettingsActivity.getNumberOfMines(context);
+		amountofgold = SettingsActivity.getAmountOfGold(context);
+		createBoard(numberofmines, amountofgold);
 		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 
