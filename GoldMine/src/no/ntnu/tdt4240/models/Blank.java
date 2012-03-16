@@ -3,6 +3,7 @@ import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.R.color;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Blank extends Cell{
@@ -34,11 +35,11 @@ public class Blank extends Cell{
 	public void initPaint(){
 		goldPaint = new Paint();
 		goldPaint.setTextSize(26);
-		goldPaint.setColor(R.color.gold);
+		goldPaint.setColor(Color.YELLOW);
 		goldPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 		minePaint = new Paint();
 		minePaint.setTextSize(26);
-		minePaint.setColor(R.color.mine);
+		minePaint.setColor(Color.GRAY);
 		minePaint.setStyle(Paint.Style.FILL_AND_STROKE);
 	}
 
