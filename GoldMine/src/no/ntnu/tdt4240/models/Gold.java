@@ -4,23 +4,21 @@ import android.content.Context;
 
 public class Gold extends Cell {
 
-	private boolean clicked;
 
 	Gold(Context context){
 		super(context);
-		clicked = false;
 	}
 
 	public void onClick(){
-		if(!clicked){
-			clicked=true;
+		if(!isClicked()){
+			click();
 			changeImage();
 		}
 	}
 
 	@Override
 	public void changeImage(){
-	this.setBackgroundResource(R.drawable.gold);
+		this.setBackgroundResource(R.drawable.gold);
 	}
 
 }

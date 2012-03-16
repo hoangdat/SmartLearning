@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:id="@+id/playerpanel"
-        android:layout_width="150px"
+        android:layout_width="144px"
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="0px"
@@ -44,12 +44,13 @@
 
     <RelativeLayout
         android:id="@+id/MineFieldView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/playerpanel"
         android:paddingLeft="0px"
-        android:paddingTop="0px" >
+        android:paddingTop="0px"
+        android:layout_margin="0px" >
 
         <GridView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -59,8 +60,9 @@
             android:columnWidth="40px"
             android:gravity="fill"
             android:horizontalSpacing="0px"
-            android:numColumns="22"
+            android:numColumns="21"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="0px" />
+            android:verticalSpacing="0px"
+        	android:layout_margin="0px" />
     </RelativeLayout>
 </RelativeLayout>

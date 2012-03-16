@@ -4,17 +4,14 @@ import android.content.Context;
 
 public class Mine extends Cell {
 
-	private boolean clicked;
-	
 	Mine(Context context) {
 		super(context);
-		clicked = false;
 	}
 	
 	public void onClick(){
-		if(!clicked){
-			clicked=true;
+		if(!isClicked()){
 			changeImage();	
+			click();
 		}
 	}
 	
