@@ -17,16 +17,12 @@ public abstract class Cell extends View {
 		return clicked;
 	}
 	
-	public void click(){
-		clicked = true;
-	}
-	
 	public abstract void changeImage();
 	
 	public void onClick(){
 		if(!isClicked()){
 			changeImage();	
-			click();
+			clicked = true;
 		}
 	}
 	

@@ -18,13 +18,6 @@ public class Blank extends Cell{
 		this.numberOfAdjacentMines = mines;	
 		initPaint();
 	}
-
-	public void onClick(){
-		if(!isClicked()){
-			click();
- 			changeImage();
-		}
-	}
 	
 	@Override
 	public boolean needsRipple() {
