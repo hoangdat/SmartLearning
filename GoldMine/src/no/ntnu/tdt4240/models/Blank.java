@@ -11,17 +11,22 @@ public class Blank extends Cell{
 	private int numberOfAdjacentMines;
 	private Paint goldPaint;
 	private Paint minePaint;
-
+	private boolean needsRipple;
+	
 	Blank(Context context, int mines, int gold) {
 		super(context);
 		this.numberOfAdjacentGold = gold;
 		this.numberOfAdjacentMines = mines;	
 		initPaint();
+		if (!isClicked() && isEmpty())
+			needsRipple = true;
 	}
 	
 	@Override
 	public boolean needsRipple() {
-		return !isClicked() && isEmpty();
+		boolean tmp = !isClicked() && isEmpty() && needsRipple;
+		needsRipple = false;
+		return tmp;
 	}
 	
 	public void initPaint(){
