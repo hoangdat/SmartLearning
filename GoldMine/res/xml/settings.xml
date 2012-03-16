@@ -23,7 +23,7 @@
         android:summary="Set amount of gold"
         android:defaultValue="20"
         android:title="Amount of gold"
-        android:key="numberofgoldvar"
+        android:key="amountofgoldvar"
         android:inputType="number"/>
     
     <CheckBoxPreference

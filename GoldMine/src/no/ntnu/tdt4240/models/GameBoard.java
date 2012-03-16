@@ -14,9 +14,9 @@ public class GameBoard {
 		numberOfCols = 22;
 		gameBoard = new Cell[numberOfRows][numberOfCols];
 		this.context = context;
-		// numberofmines = SettingsActivity.getNumberOfMines(context);
-		// amountofgold = SettingsActivity.getAmountOfGold(context);
-		createBoard(30, 30);
+		numberofmines = SettingsActivity.getNumberOfMines(context);
+		amountofgold = SettingsActivity.getAmountOfGold(context);
+		createBoard(amountofgold, numberofmines);
 		// ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 
