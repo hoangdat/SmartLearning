@@ -8,13 +8,6 @@ public class Mine extends Cell {
 		super(context);
 	}
 	
-	public void onClick(){
-		if(!isClicked()){
-			changeImage();	
-			click();
-		}
-	}
-	
 	@Override
 	public void changeImage(){
 		this.setBackgroundResource(R.drawable.wormsmine);

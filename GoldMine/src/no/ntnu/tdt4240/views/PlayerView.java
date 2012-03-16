@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.views;
 
+import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.Player;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -21,7 +22,7 @@ public class PlayerView extends View {
 	private void init() {
 		paint = new Paint();
 		paint.setTextSize(24);
-		paint.setColor(Color.BLUE);
+		paint.setColor(R.color.mine);
 		paint.setStyle(Paint.Style.FILL_AND_STROKE);
 	}
 
