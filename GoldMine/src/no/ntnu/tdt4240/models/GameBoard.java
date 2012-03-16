@@ -14,18 +14,18 @@ public class GameBoard{
 		numberOfCols = 22;
 		gameBoard = new Cell[numberOfRows][numberOfCols];
 		this.context = context;
-		numberofmines = SettingsActivity.getNumberOfMines(context);
-		amountofgold = SettingsActivity.getAmountOfGold(context);
-		createBoard(numberofmines, amountofgold);
+//		numberofmines = SettingsActivity.getNumberOfMines(context);
+//		amountofgold = SettingsActivity.getAmountOfGold(context);
+		createBoard(30, 30);
 		//ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 
 	private void addGold(int gold){
 		while(gold > 0){
-			int xValue = (int)(Math.random()*numberOfRows);
-			int yValue = (int)(Math.random()*numberOfCols);
-			if(gameBoard[xValue][yValue] == null){
-				gameBoard[xValue][yValue] = new Gold(context);
+			int x = (int)(Math.random()*numberOfCols);
+			int y = (int)(Math.random()*numberOfRows);
+			if(gameBoard[y][x] == null){
+				gameBoard[y][x] = new Gold(context);
 				gold--;
 			}
 		}
@@ -33,10 +33,10 @@ public class GameBoard{
 
 	private void addMines(int mines){
 		while(mines > 0){
-			int xValue=(int) (Math.random()*numberOfRows);
-			int yValue=(int) (Math.random()*numberOfCols);
-			if(gameBoard[xValue][yValue]==null){
-				gameBoard[xValue][yValue]= new Mine(context);
+			int x =(int) (Math.random()*numberOfCols);
+			int y =(int) (Math.random()*numberOfRows);
+			if(gameBoard[y][x]==null){
+				gameBoard[y][x]= new Mine(context);
 				mines--;
 			}
 		}	
@@ -53,19 +53,19 @@ public class GameBoard{
 					countAdjacentAndCreateBlank(row, col);
 	}
 
-	private void countAdjacentAndCreateBlank(int x, int y){
+	private void countAdjacentAndCreateBlank(int row, int col){
 		int adjacentGold = 0, adjacentMines = 0;
-		for(int currentRow = x-1; currentRow <= x+1; currentRow++){ //start one up from the cell...
-			for(int currentCol = y-1; currentCol <= y+1; currentCol++){ //...and one left from the cell
-				if(isInsideBounds(currentRow, currentCol)){
-					if(gameBoard[currentRow][currentCol] instanceof Gold)
+		for(int y = row-1; y <= row+1; y++){ //start one up from the cell...
+			for(int x = col-1; x <= col+1; x++){ //...and one left from the cell
+				if(isInsideBounds(y, x)){
+					if(gameBoard[y][x] instanceof Gold)
 						adjacentGold++;
-					if(gameBoard[currentRow][currentCol] instanceof Mine)
+					if(gameBoard[y][x] instanceof Mine)
 						adjacentMines++;
 				}
 			}
 		}
-		gameBoard[x][y] = new Blank(context, adjacentGold, adjacentMines);
+		gameBoard[row][col] = new Blank(context, adjacentGold, adjacentMines);
 	}
 
 	public void createBoard(int gold, int mines){
@@ -84,14 +84,14 @@ public class GameBoard{
 	public int getNumberOfCols(){
 		return numberOfCols;
 	}
-	public Cell getCell(int x, int y){
-		return gameBoard[x][y];
+	public Cell getCell(int y, int x){
+		return gameBoard[y][x];
 	}
 	public Cell getCell(int pos){
 		return getCell( pos/numberOfCols, pos%numberOfCols); 
 	}
 
-	public void rippleFrom(int row, int col) {
+	public void rippleFrom(int col, int row) {
 		/*
 		 * Trykk på alle cellene rundt, sjekke om de skal ripples også videre
 		 */
