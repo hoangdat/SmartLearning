@@ -11,6 +11,14 @@
         android:title="Game mode" />
 
     <EditTextPreference 
+        android:name="Amount of gold"
+        android:summary="Set amount of gold"
+        android:defaultValue="20"
+        android:title="Amount of gold"
+        android:key="amountofgoldvar"
+        android:inputType="number"/>
+    
+    <EditTextPreference 
         android:name="Number of mines"
         android:summary="Set number of mines"
         android:defaultValue="45"
@@ -18,13 +26,6 @@
         android:key="numberofminesvar"
         android:inputType="number"/>
     
-    <EditTextPreference 
-        android:name="Amount of gold"
-        android:summary="Set amount of gold"
-        android:defaultValue="20"
-        android:title="Amount of gold"
-        android:key="amountofgoldvar"
-        android:inputType="number"/>
     
     <CheckBoxPreference
         android:defaultValue="true"

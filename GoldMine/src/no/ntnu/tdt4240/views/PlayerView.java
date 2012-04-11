@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -13,9 +14,11 @@ public class PlayerView extends View {
 
 	private Paint paint;
 	private Player player;
+	private Context myContext;
 	
 	public PlayerView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		myContext = context;
 		init();
 	}
 
@@ -23,6 +26,8 @@ public class PlayerView extends View {
 		paint = new Paint();
 		paint.setTextSize(24);
 		paint.setColor(R.color.mine);
+		//Typeface tf = Typeface.createFromAsset(myContext.getAssets(),"font/SinkiS93.otf");
+		//paint.setTypeface(tf);
 		paint.setStyle(Paint.Style.FILL_AND_STROKE);
 	}
 
