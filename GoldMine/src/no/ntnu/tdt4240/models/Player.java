@@ -5,15 +5,15 @@ import no.ntnu.tdt4240.views.PlayerView;
 public class Player {
 
 	private String name;
-	private long score;
+	private int score;
 	private PlayerView view;
 	
 	public Player(String name) {
 		this.name = name;
-		score = 0;
+		score = Integer.MAX_VALUE;
 	}
 	
-	public void setScore(long newScore){
+	public void setScore(int newScore){
 		score=newScore;
 	}
 	
@@ -33,6 +33,11 @@ public class Player {
 	}
 
 	public String getName() {
+		return name;
+	}
+	
+	@Override
+	public String toString() {
 		return name;
 	}
 
