@@ -19,11 +19,13 @@ public abstract class Cell extends View {
 	
 	public abstract void changeImage();
 	
-	public void onClick(){
+	public Cell onClick(){
 		if(!isClicked()){
 			changeImage();	
 			clicked = true;
+			return this;
 		}
+		return null;
 	}
 	
 	public boolean needsRipple() {

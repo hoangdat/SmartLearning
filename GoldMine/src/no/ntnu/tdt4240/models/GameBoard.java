@@ -10,8 +10,8 @@ public class GameBoard {
 	public Context context;
 
 	public GameBoard(Context context) {
-		numberOfRows = 15;
-		numberOfCols = 22;
+		numberOfRows = 14;
+		numberOfCols = 21;
 		gameBoard = new Cell[numberOfRows][numberOfCols];
 		this.context = context;
 		numberofmines = SettingsActivity.getNumberOfMines(context);

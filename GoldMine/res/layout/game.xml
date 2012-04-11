@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screenLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal" >
@@ -10,7 +11,8 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="0px"
-        android:layout_marginTop="0px" >
+        android:layout_marginTop="0px"
+        android:background="@drawable/playerviewbackground" >
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -40,6 +42,7 @@
                 android:layout_weight="1"
                 android:background="@color/player2_background" />
         </LinearLayout>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -60,9 +63,10 @@
             android:columnWidth="40px"
             android:gravity="fill"
             android:horizontalSpacing="0px"
-            android:numColumns="22"
+            android:numColumns="21"
             android:stretchMode="columnWidth"
             android:verticalSpacing="0px"
         	android:layout_margin="0px" />
     </RelativeLayout>
+
 </RelativeLayout>

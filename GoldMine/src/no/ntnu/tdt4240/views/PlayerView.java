@@ -26,11 +26,11 @@ public class PlayerView extends View {
 		paint = new Paint();
 		paint.setTextSize(24);
 		paint.setColor(R.color.mine);
-		//Typeface tf = Typeface.createFromAsset(myContext.getAssets(),"font/SinkiS93.otf");
+		setBackgroundResource(R.drawable.playerviewavatar);
 		//paint.setTypeface(tf);
 		paint.setStyle(Paint.Style.FILL_AND_STROKE);
 	}
-
+	
 	public String getName() {
 		if (player == null)
 			return "Player1";
@@ -56,7 +56,7 @@ public class PlayerView extends View {
 		canvas.drawRect(25, 75, 125, 175, paint);
 		
 		float scoreWidth = paint.measureText(getScore());
-		float startScore = 75 - scoreWidth/2;
+		float startScore = getWidth()/2 - scoreWidth/2;
 		
 		canvas.drawText(getScore(), startScore, 250, paint);
 	}

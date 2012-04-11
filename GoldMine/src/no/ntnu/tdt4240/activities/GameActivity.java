@@ -6,6 +6,8 @@ import java.util.Observer;
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.Cell;
 import no.ntnu.tdt4240.models.GameBoard;
+import no.ntnu.tdt4240.models.GameMode;
+import no.ntnu.tdt4240.models.NormalMode;
 import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
@@ -31,7 +33,8 @@ public class GameActivity extends Activity implements Observer {
 	Player player2 = new Player("Jonas");
 	GameBoard gameBoard;
 	GridView mineField;
-
+	GameMode gameMode;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,9 +48,13 @@ public class GameActivity extends Activity implements Observer {
 
 		setContentView(R.layout.game);
 		gameBoard = new GameBoard(this);
+		activePlayer = player1;
 		createPlayerViews();
 		mineField = (GridView) findViewById(R.id.MineField);
 		mineField.setPadding(0, 0, 0, 0);
+		
+		setGameMode();
+		
 		
 		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
 		mineField.setAdapter(mineFieldAdapter);
@@ -61,11 +68,16 @@ public class GameActivity extends Activity implements Observer {
 	            	gameBoard.rippleFrom(row, col);
 	            }
 	            	
-	            ((Cell)view).onClick();
+	            Cell clickedCell = ((Cell)view).onClick();
 	            
+	            gameMode.switchPlayer(clickedCell);
 			}
 
 		});
+	}
+
+	private void setGameMode() {
+		gameMode = new NormalMode(this);
 	}
 
 	private void createPlayerViews() {
@@ -77,16 +89,13 @@ public class GameActivity extends Activity implements Observer {
 		player2.setPlayerView(view2);
 	}
 
-	private void switchPlayer() {
+	public void switchPlayer() {
 		if (activePlayer == player1) {
 			activePlayer = player2;
 		} else {
 			activePlayer = player1;
 		}
-	}
-
-	public void onTouchDown(Event event) {
-
+		Toast.makeText(GameActivity.this, "Common " + activePlayer, 5).show();
 	}
 
 	public void udateScore(int scoreChange) {

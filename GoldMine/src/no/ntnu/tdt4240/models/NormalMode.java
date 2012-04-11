@@ -1,20 +1,21 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.activities.GameActivity;
-import android.R;
 
-public class GoldMode extends GameMode{
-	
-	public GoldMode(GameActivity ga) {
+public class NormalMode extends GameMode {
+
+	public NormalMode(GameActivity ga) {
 		super(ga);
-		// TODO Auto-generated constructor stub
 	}
-
-	//int numberOfMines=R.xml.;
-	int numberOfGold;
 
 	@Override
 	public void switchPlayer(Cell cell) {
+		if (cell != null && cell instanceof Mine) {
+			gameActivity.switchPlayer();
+		}
+		else if (cell != null && cell instanceof Blank){
+			gameActivity.switchPlayer();
+		}
 	}
 
 	@Override
@@ -34,11 +35,7 @@ public class GoldMode extends GameMode{
 
 	@Override
 	public int calculateScore(Cell cell) {
-		if (cell instanceof Gold)
-			return 10;
-		else
-			return 0;
+		return 0;
 	}
-	
-	
+
 }
