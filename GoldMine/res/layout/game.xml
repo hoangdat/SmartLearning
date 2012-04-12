@@ -8,11 +8,11 @@
     <RelativeLayout
         android:id="@+id/playerpanel"
         android:layout_width="144px"
-        android:layout_height="fill_parent"
+        android:layout_height="560px"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="0px"
-        android:layout_marginTop="0px"
-        android:background="@drawable/playerviewbackground" >
+        android:layout_marginTop="5px"
+        android:background="@drawable/avatarview_simple" >
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -22,25 +22,33 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="0px"
             android:layout_weight="1"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <no.ntnu.tdt4240.views.PlayerView
                 android:id="@+id/playerView1"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="5px"
+                android:layout_marginTop="20px"
+                android:layout_marginBottom="20px"
                 android:layout_weight="1"
-                android:background="@color/player1_background" />
-
+                android:background="@drawable/playerbox_simple" />
+                
             <no.ntnu.tdt4240.views.PlayerView
                 android:id="@+id/playerView2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="5px"
+                android:layout_marginTop="20px"
+                android:layout_marginBottom="15px"
                 android:layout_weight="1"
-                android:background="@color/player2_background" />
+                android:background="@drawable/playerbox_simple" />
         </LinearLayout>
 
     </RelativeLayout>

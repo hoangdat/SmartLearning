@@ -14,6 +14,7 @@ public class PlayerView extends View {
 
 	private Paint paint;
 	private Player player;
+	private Typeface tf;
 	
 	public PlayerView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -24,9 +25,16 @@ public class PlayerView extends View {
 		paint = new Paint();
 		paint.setTextSize(24);
 		paint.setColor(R.color.mine);
-//		setBackgroundResource(R.drawable.playerviewavatar);
+		setBackgroundResource(R.drawable.playerviewavatar);
 		//paint.setTypeface(tf);
 		paint.setStyle(Paint.Style.FILL_AND_STROKE);
+	}
+	
+	private void drawScore(int number) { //HERPDERP!
+		paint = new Paint();
+		paint.setTextSize(15);
+		paint.setColor(Color.WHITE);
+		
 	}
 	
 	public String getName() {
