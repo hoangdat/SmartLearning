@@ -10,10 +10,9 @@ public abstract class GameMode {
 		gameActivity = ga;
 	}
 
-	public abstract void switchPlayer(Cell cell);
+	public abstract void onClickedCell(Cell cell);
 	public abstract boolean isItGold();
 	public abstract boolean isItMines();
-	public abstract boolean setTime();
 	
 	public abstract int calculateScore(Cell cell);
 	

@@ -1,7 +1,6 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.activities.GameActivity;
-import android.R;
 
 public class GoldMode extends GameMode{
 	
@@ -14,7 +13,7 @@ public class GoldMode extends GameMode{
 	int numberOfGold;
 
 	@Override
-	public void switchPlayer(Cell cell) {
+	public void onClickedCell(Cell cell) {
 	}
 
 	@Override
@@ -28,17 +27,10 @@ public class GoldMode extends GameMode{
 	}
 
 	@Override
-	public boolean setTime() {
-		return false;
-	}
-
-	@Override
 	public int calculateScore(Cell cell) {
 		if (cell instanceof Gold)
 			return 10;
 		else
 			return 0;
 	}
-	
-	
 }

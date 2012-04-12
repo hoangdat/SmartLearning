@@ -10,11 +10,12 @@ public class Player {
 	
 	public Player(String name) {
 		this.name = name;
-		score = Integer.MAX_VALUE;
+		score = 0;
 	}
 	
-	public void setScore(int newScore){
-		score=newScore;
+	public void addToScore(int scoreChange){
+		score += scoreChange;
+		view.invalidate();
 	}
 	
 	public long getScore() {

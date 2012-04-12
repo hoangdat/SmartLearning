@@ -9,12 +9,14 @@ public class NormalMode extends GameMode {
 	}
 
 	@Override
-	public void switchPlayer(Cell cell) {
-		if (cell != null && cell instanceof Mine) {
-			gameActivity.switchPlayer();
-		}
-		else if (cell != null && cell instanceof Blank){
-			gameActivity.switchPlayer();
+	public void onClickedCell(Cell cell) {
+		if (cell != null) {
+			if (cell instanceof Mine) {
+				gameActivity.switchPlayer();
+			} else if (cell != null && cell instanceof Blank) {
+				gameActivity.switchPlayer();
+			}
+			gameActivity.addToScore(calculateScore(cell));
 		}
 	}
 
@@ -25,17 +27,16 @@ public class NormalMode extends GameMode {
 
 	@Override
 	public boolean isItMines() {
-		return false;
-	}
-
-	@Override
-	public boolean setTime() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public int calculateScore(Cell cell) {
+
+		if (cell instanceof Gold)
+			return 751;
+		else if (cell instanceof Mine)
+			return -1344;
 		return 0;
 	}
-
 }

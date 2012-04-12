@@ -26,7 +26,7 @@ import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 import android.widget.Toast;
 
-public class GameActivity extends Activity implements Observer {
+public class GameActivity extends Activity  {
 
 	private Player activePlayer;
 	Player player1 = new Player("Vegar");
@@ -70,7 +70,7 @@ public class GameActivity extends Activity implements Observer {
 	            	
 	            Cell clickedCell = ((Cell)view).onClick();
 	            
-	            gameMode.switchPlayer(clickedCell);
+	            gameMode.onClickedCell(clickedCell);
 			}
 
 		});
@@ -95,15 +95,11 @@ public class GameActivity extends Activity implements Observer {
 		} else {
 			activePlayer = player1;
 		}
-		Toast.makeText(GameActivity.this, "Common " + activePlayer, 5).show();
 	}
 
-	public void udateScore(int scoreChange) {
-
+	public void addToScore(int scoreChange) {
+		activePlayer.addToScore(scoreChange);
+		Toast.makeText(GameActivity.this, activePlayer.getScore() + "", 5).show();
 	}
 
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-
-	}
 }
