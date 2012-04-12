@@ -55,7 +55,6 @@ public class GameActivity extends Activity  {
 		
 		setGameMode();
 		
-		
 		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
 		mineField.setAdapter(mineFieldAdapter);
 		mineField.setOnItemClickListener(new OnItemClickListener() {
@@ -69,10 +68,8 @@ public class GameActivity extends Activity  {
 	            }
 	            	
 	            Cell clickedCell = ((Cell)view).onClick();
-	            
 	            gameMode.onClickedCell(clickedCell);
 			}
-
 		});
 	}
 
@@ -81,7 +78,6 @@ public class GameActivity extends Activity  {
 	}
 
 	private void createPlayerViews() {
-
 		PlayerView view1 = (PlayerView) findViewById(R.id.playerView1);
 		player1.setPlayerView(view1);
 
@@ -99,7 +95,6 @@ public class GameActivity extends Activity  {
 
 	public void addToScore(int scoreChange) {
 		activePlayer.addToScore(scoreChange);
-		Toast.makeText(GameActivity.this, activePlayer.getScore() + "", 5).show();
 	}
 
 }

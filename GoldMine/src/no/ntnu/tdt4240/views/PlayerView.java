@@ -12,7 +12,8 @@ import android.view.View;
 
 public class PlayerView extends View {
 
-	private Paint paint;
+	private Paint namePaint;
+	private Paint scorePaint;
 	private Player player;
 	private Typeface tf;
 	
@@ -22,18 +23,25 @@ public class PlayerView extends View {
 	}
 
 	private void init() {
-		paint = new Paint();
-		paint.setTextSize(24);
-		paint.setColor(R.color.mine);
-		setBackgroundResource(R.drawable.playerviewavatar);
-		//paint.setTypeface(tf);
-		paint.setStyle(Paint.Style.FILL_AND_STROKE);
+		namePaint = new Paint();
+		namePaint.setTextSize(24);
+//		paint.setColor(R.color.blank);
+		namePaint.setColor(Color.RED);
+		setBackgroundResource(R.drawable.playerbox_simple);
+		Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "font/baveuse.otf");
+		namePaint.setTypeface(tf);
+		namePaint.setStyle(Paint.Style.FILL_AND_STROKE);
+
+		scorePaint = new Paint();
+		scorePaint.set(namePaint);
+		scorePaint.setColor(Color.WHITE);
+		
 	}
 	
 	private void drawScore(int number) { //HERPDERP!
-		paint = new Paint();
-		paint.setTextSize(15);
-		paint.setColor(Color.WHITE);
+		namePaint = new Paint();
+		namePaint.setTextSize(15);
+		namePaint.setColor(Color.WHITE);
 		
 	}
 	
@@ -55,16 +63,16 @@ public class PlayerView extends View {
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
-		float nameWidth = paint.measureText(getName());
+		float nameWidth = namePaint.measureText(getName());
 		float startName = getWidth()/2 - nameWidth/2;
 		
-		canvas.drawText(getName(), startName, 35, paint);
-		canvas.drawRect(25, 75, 125, 175, paint);
+		canvas.drawText(getName(), startName, 35, namePaint);
+		canvas.drawRect(25, 75, 100, 150, namePaint);
 		
-		float scoreWidth = paint.measureText(getScore());
+		float scoreWidth = namePaint.measureText(getScore());
 		float startScore = getWidth()/2 - scoreWidth/2;
 		
-		canvas.drawText(getScore(), startScore, 250, paint);
+		canvas.drawText(getScore(), startScore, 200, scorePaint);
 	}
 
 	private String getScore() {

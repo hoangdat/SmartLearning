@@ -15,12 +15,12 @@ public class NormalMode extends GameMode {
 	@Override
 	public void onClickedCell(Cell cell) {
 		if (cell != null) {
+			gameActivity.addToScore(calculateScore(cell));
 			if (cell instanceof Mine) {
 				gameActivity.switchPlayer();
 			} else if (cell != null && cell instanceof Blank) {
 				gameActivity.switchPlayer();
 			}
-			gameActivity.addToScore(calculateScore(cell));
 		}
 	}
 

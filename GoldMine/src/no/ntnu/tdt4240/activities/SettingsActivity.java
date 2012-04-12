@@ -39,7 +39,6 @@ public class SettingsActivity extends PreferenceActivity {
 	public static int getAmountOfGold(Context context) {
         return Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).
             getString(AMOUNT_OF_GOLD, AMOUNT_OF_GOLD_DEFAULT));
-        
     }
 	
 }
