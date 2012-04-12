@@ -4,11 +4,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 import no.ntnu.tdt4240.R;
-import no.ntnu.tdt4240.models.Cell;
 import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.models.GameMode;
 import no.ntnu.tdt4240.models.NormalMode;
 import no.ntnu.tdt4240.models.Player;
+import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
 import android.graphics.Path.FillType;

@@ -1,9 +1,7 @@
-package no.ntnu.tdt4240.models;
+package no.ntnu.tdt4240.views;
 import no.ntnu.tdt4240.R;
-import no.ntnu.tdt4240.R.color;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Blank extends Cell{
@@ -14,7 +12,7 @@ public class Blank extends Cell{
 	private Paint minePaint;
 	private boolean needsRipple;
 	
-	Blank(Context context, int gold, int mines) {
+	public Blank(Context context, int gold, int mines) {
 		super(context);
 		this.numberOfAdjacentGold = gold;
 		this.numberOfAdjacentMines = mines;	

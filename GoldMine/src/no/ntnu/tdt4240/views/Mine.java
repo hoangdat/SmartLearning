@@ -1,10 +1,10 @@
-package no.ntnu.tdt4240.models;
+package no.ntnu.tdt4240.views;
 import no.ntnu.tdt4240.R;
 import android.content.Context;
 
 public class Mine extends Cell {
 
-	Mine(Context context) {
+	public Mine(Context context) {
 		super(context);
 	}
 	

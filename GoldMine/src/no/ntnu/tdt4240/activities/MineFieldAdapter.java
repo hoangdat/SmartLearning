@@ -1,7 +1,7 @@
 package no.ntnu.tdt4240.activities;
 
-import no.ntnu.tdt4240.models.Cell;
 import no.ntnu.tdt4240.models.GameBoard;
+import no.ntnu.tdt4240.views.Cell;
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;

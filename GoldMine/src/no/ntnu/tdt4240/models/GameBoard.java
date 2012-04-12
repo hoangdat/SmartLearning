@@ -1,6 +1,10 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.activities.SettingsActivity;
+import no.ntnu.tdt4240.views.Blank;
+import no.ntnu.tdt4240.views.Cell;
+import no.ntnu.tdt4240.views.Gold;
+import no.ntnu.tdt4240.views.Mine;
 import android.content.Context;
 
 public class GameBoard {

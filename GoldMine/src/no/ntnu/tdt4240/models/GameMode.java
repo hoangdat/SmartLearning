@@ -1,6 +1,7 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.activities.GameActivity;
+import no.ntnu.tdt4240.views.Cell;
 
 public abstract class GameMode {
 

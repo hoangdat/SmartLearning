@@ -1,4 +1,4 @@
-package no.ntnu.tdt4240.models;
+package no.ntnu.tdt4240.views;
 import no.ntnu.tdt4240.R;
 import android.content.Context;
 import android.view.*;
