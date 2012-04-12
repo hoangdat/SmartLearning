@@ -15,6 +15,7 @@ public class SettingsActivity extends PreferenceActivity {
 	private static final String NUMBER_OF_MINES_DEFAULT = "45";
     private static final String AMOUNT_OF_GOLD = "amountofgoldvar";
     private static final String AMOUNT_OF_GOLD_DEFAULT = "25";
+    private static final boolean isMuted = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +42,10 @@ public class SettingsActivity extends PreferenceActivity {
             getString(AMOUNT_OF_GOLD, AMOUNT_OF_GOLD_DEFAULT));
         
     }
+	
+	//TODO - DETTE ER EN DUMMYMETODE
+	public static boolean isMuted(Context context){
+		return isMuted;
+	}
 	
 }
