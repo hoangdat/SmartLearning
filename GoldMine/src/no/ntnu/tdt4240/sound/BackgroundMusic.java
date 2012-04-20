@@ -18,11 +18,11 @@ public class BackgroundMusic{
 	    mute = SettingsActivity.isMuted(context); // should there be sound?
 	    soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
 	    
-	    mine = soundPool.load(context, R.raw.FILENNAME, 1);
+	 /*   mine = soundPool.load(context, R.raw.FILENNAME, 1);
 	    gold = soundPool.load(context, R.raw.FILENAME, 1);
 	    blank = soundPool.load(context, R.raw.FILENAME, 1);
 	    
-	    music = MediaPlayer.create(context, R.raw.FILENAME);
+	    music = MediaPlayer.create(context, R.raw.FILENAME);*/
 	}
 	
 	public static void playSelect(){ //plays the selected sound from the soundpool
