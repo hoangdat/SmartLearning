@@ -22,8 +22,8 @@ import android.widget.Toast;
 public class GameActivity extends Activity  {
 
 	private Player activePlayer;
-	Player player1 = new Player("Vegar");
-	Player player2 = new Player("Jonas");
+	Player player1 = new Player("Player 1");
+	Player player2 = new Player("Player 2");
 	GameBoard gameBoard;
 	GridView mineField;
 	GameMode gameMode;
