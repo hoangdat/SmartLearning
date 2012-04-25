@@ -15,6 +15,9 @@ public abstract class GameMode {
 	public abstract boolean isItGold();
 	public abstract boolean isItMines();
 	
+	public abstract boolean isGameOver();
 	public abstract int calculateScore(Cell cell);
+
+	public abstract Player desideWinner(Player player1, Player player2);
 	
 }

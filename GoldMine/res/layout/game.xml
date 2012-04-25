@@ -75,6 +75,16 @@
             android:stretchMode="columnWidth"
             android:verticalSpacing="0px"
         	android:layout_margin="0px" />
+
+        <TextView
+            android:id="@+id/middleTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40dp" />
+
     </RelativeLayout>
 
 </RelativeLayout>

@@ -1,8 +1,5 @@
 package no.ntnu.tdt4240.activities;
 
-import java.util.Observable;
-import java.util.Observer;
-
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.models.GameMode;
@@ -11,19 +8,15 @@ import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
-import android.graphics.Path.FillType;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TableRow.LayoutParams;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class GameActivity extends Activity  {
@@ -34,6 +27,8 @@ public class GameActivity extends Activity  {
 	GameBoard gameBoard;
 	GridView mineField;
 	GameMode gameMode;
+	
+	TextView middleText;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +49,8 @@ public class GameActivity extends Activity  {
 		mineField.setPadding(0, 0, 0, 0);
 		
 		setGameMode();
+		player1.makeActive(this);
+		player2.makeDeactive(this);
 		
 		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
 		mineField.setAdapter(mineFieldAdapter);
@@ -71,6 +68,12 @@ public class GameActivity extends Activity  {
 	            gameMode.onClickedCell(clickedCell);
 			}
 		});
+		
+		middleText = (TextView) findViewById(R.id.middleTextView);
+		
+		Typeface tf = Typeface.createFromAsset(getAssets(), "font/baveuse.otf");
+		middleText.setTypeface(tf);
+		middleText.setVisibility(View.GONE);
 	}
 
 	private void setGameMode() {
@@ -86,15 +89,28 @@ public class GameActivity extends Activity  {
 	}
 
 	public void switchPlayer() {
+		activePlayer.makeDeactive(this);
 		if (activePlayer == player1) {
-			activePlayer = player2;
+			makeActive(player2);
 		} else {
-			activePlayer = player1;
+			makeActive(player1);
 		}
+	}
+
+	private void makeActive(Player player) {
+		activePlayer = player;
+		player.makeActive(this);
 	}
 
 	public void addToScore(int scoreChange) {
 		activePlayer.addToScore(scoreChange);
+	}
+
+	public void endGame() {
+		Player winner = gameMode.desideWinner(player1, player2);
+		
+		middleText.setText(winner + " WON!");
+		middleText.setVisibility(View.VISIBLE);
 	}
 
 }

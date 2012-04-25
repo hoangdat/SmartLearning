@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.models;
 
+import android.content.Context;
 import no.ntnu.tdt4240.views.PlayerView;
 
 public class Player {
@@ -18,7 +19,7 @@ public class Player {
 		view.invalidate();
 	}
 	
-	public long getScore() {
+	public int getScore() {
 		return score;
 	}
 	
@@ -42,4 +43,14 @@ public class Player {
 		return name;
 	}
 
+	public void makeActive(Context context) {
+		view.makeActive(context);
+		view.invalidate();
+	}
+
+	public void makeDeactive(Context context) {
+		view.makeDeactive(context);
+		view.invalidate();
+	}
+	
 }

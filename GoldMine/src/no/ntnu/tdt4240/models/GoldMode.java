@@ -35,4 +35,16 @@ public class GoldMode extends GameMode{
 		else
 			return 0;
 	}
+
+	@Override
+	public boolean isGameOver() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Player desideWinner(Player player1, Player player2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
