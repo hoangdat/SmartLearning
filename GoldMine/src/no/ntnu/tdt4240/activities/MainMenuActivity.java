@@ -1,6 +1,7 @@
 package no.ntnu.tdt4240.activities;
 
 import no.ntnu.tdt4240.R;
+import no.ntnu.tdt4240.sound.BackgroundMusic;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class MainMenuActivity extends Activity implements android.view.View.OnClickListener {
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,9 @@ public class MainMenuActivity extends Activity implements android.view.View.OnCl
         aboutButton.setOnClickListener(this);
         View exitButton = findViewById(R.id.exit_button);
         exitButton.setOnClickListener(this);
+        
+        BackgroundMusic.loadSound(this);
+    	BackgroundMusic.playMusic();
         
     }
 
