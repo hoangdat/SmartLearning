@@ -44,13 +44,13 @@ public class Player {
 	}
 
 	public void makeActive(Context context) {
-		view.makeActive(context);
-		view.invalidate();
+//		view.makeActive(context);
+//		view.invalidate();
 	}
 
 	public void makeDeactive(Context context) {
-		view.makeDeactive(context);
-		view.invalidate();
+//		view.makeDeactive(context);
+//		view.invalidate();
 	}
 	
 }

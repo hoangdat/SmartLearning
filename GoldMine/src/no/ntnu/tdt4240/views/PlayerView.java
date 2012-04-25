@@ -12,8 +12,6 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class PlayerView extends View {
@@ -21,12 +19,10 @@ public class PlayerView extends View {
 	private Paint namePaint;
 	private Paint scorePaint;
 	private Player player;
-	private String active;
 	
 	public PlayerView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
-		active = "active";
 		ImageView iv = new ImageView(context, attrs);
 		iv.setBackgroundResource(R.drawable.cow);
 		
@@ -49,13 +45,6 @@ public class PlayerView extends View {
 		scorePaint.set(namePaint);
 		scorePaint.setColor(Color.WHITE);
 		
-		
-	}
-	
-	private void drawScore(int number) { //HERPDERP!
-		namePaint = new Paint();
-		namePaint.setTextSize(15);
-		namePaint.setColor(Color.WHITE);
 		
 	}
 	
@@ -86,9 +75,8 @@ public class PlayerView extends View {
 		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.cow);
 		
 		
-		canvas.drawBitmap(bm, 0, 0, namePaint);
+		canvas.drawBitmap(bm, 7, 50, namePaint);
 		
-//		canvas.drawRect(25, 75, 100, 150, namePaint);
 		
 		
 		
@@ -107,7 +95,7 @@ public class PlayerView extends View {
 	public void makeActive(Context context) {
 //		Animation fadein = AnimationUtils.loadAnimation(context, R.anim.fadein);
 //		startAnimation(fadein);
-		getBackground().setAlpha(100);
+		getBackground().setAlpha(255);
 	}
 	
 	public void makeDeactive(Context context) {
