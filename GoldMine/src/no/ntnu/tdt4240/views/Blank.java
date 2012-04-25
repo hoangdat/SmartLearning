@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.views;
 import no.ntnu.tdt4240.R;
+import no.ntnu.tdt4240.sound.BackgroundMusic;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -62,6 +63,11 @@ public class Blank extends Cell{
 			canvas.drawText(numberOfAdjacentGold + "",4, 29, goldPaint);
 			canvas.drawText(numberOfAdjacentMines + "",24, 29, minePaint);
 		}
+	}
+
+	@Override
+	public void playSound() {
+		BackgroundMusic.playSelect("blank");
 	}
 
 }

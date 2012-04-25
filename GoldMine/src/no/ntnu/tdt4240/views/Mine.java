@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.views;
 import no.ntnu.tdt4240.R;
+import no.ntnu.tdt4240.sound.BackgroundMusic;
 import android.content.Context;
 
 public class Mine extends Cell {
@@ -11,6 +12,11 @@ public class Mine extends Cell {
 	@Override
 	public void changeImage(){
 		this.setBackgroundResource(R.drawable.wormsmine);
+	}
+
+	@Override
+	public void playSound() {
+		BackgroundMusic.playSelect("mine");
 	}
 
 }
