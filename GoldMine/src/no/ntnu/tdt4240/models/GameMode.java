@@ -18,6 +18,6 @@ public abstract class GameMode {
 	public abstract boolean isGameOver();
 	public abstract int calculateScore(Cell cell);
 
-	public abstract Player desideWinner(Player player1, Player player2);
+	public abstract Player decideWinner(Player player1, Player player2);
 	
 }

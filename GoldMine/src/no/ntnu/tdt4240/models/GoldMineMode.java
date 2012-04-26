@@ -1,13 +1,12 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.activities.GameActivity;
-import no.ntnu.tdt4240.activities.SettingsActivity;
 import no.ntnu.tdt4240.views.Blank;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.Gold;
 import no.ntnu.tdt4240.views.Mine;
 
-public class GoldMineMode extends GameMode {
+public class GoldMineMode extends GameMode{
 
 	private int numberOfGoldLeft;
 	
@@ -28,28 +27,26 @@ public class GoldMineMode extends GameMode {
 			else if (cell instanceof Gold){
 				numberOfGoldLeft--;
 			}
-			else gameActivity.switchPlayer();
 			if (isGameOver()) gameActivity.announceWinner();
 		}
 	}
 
 	@Override
 	public int amountOfGold() {
-		return 5;
+		return 40;
 	}
 
 	@Override
 	public int numberOfMines() {
-		return 10;
+		return 20;
 	}
 
 	@Override
 	public int calculateScore(Cell cell) {
-
 		if (cell instanceof Gold)
-			return 751;
+			return 777;
 		else if (cell instanceof Mine)
-			return -1344;
+			return -999;
 		return 0;
 	}
 
@@ -59,7 +56,7 @@ public class GoldMineMode extends GameMode {
 	}
 
 	@Override
-	public Player desideWinner(Player player1, Player player2) {
+	public Player decideWinner(Player player1, Player player2) {
 		return player1.getScore() > player2.getScore() ? player1 : player2;
 	}
 }

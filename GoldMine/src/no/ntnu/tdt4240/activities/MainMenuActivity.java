@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 public class MainMenuActivity extends Activity implements
-		android.view.View.OnClickListener {
+android.view.View.OnClickListener {
 
 	/** Called when the activity is first created. */
 	@Override
@@ -37,7 +37,7 @@ public class MainMenuActivity extends Activity implements
 		initiateMenuElement(instructionsButton);
 		initiateMenuElement(aboutButton);
 		initiateMenuElement(exitButton);
-		
+
 		//music
 		BackgroundMusic.loadSound(this);
 		BackgroundMusic.playMusic();
@@ -70,7 +70,7 @@ public class MainMenuActivity extends Activity implements
 			break;
 		}
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		BackgroundMusic.release();

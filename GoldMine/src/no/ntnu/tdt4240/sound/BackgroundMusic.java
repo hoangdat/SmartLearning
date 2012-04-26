@@ -16,12 +16,10 @@ public class BackgroundMusic{
 	private static int gold4;
 	private static int blank;
 	private static MediaPlayer music;
-	private static boolean mute = false;
-	private static Context conny;
+	private static boolean soundEnabled;
 
 	public static void loadSound(Context context) {
-		conny = context;
-		mute = SettingsActivity.isMuted(context); // should there be sound?
+		soundEnabled = SettingsActivity.isSoundEnabled(context);
 		soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
 		mine = soundPool.load(context, R.raw.mine, 1);
 		gold1 = soundPool.load(context, R.raw.gold1, 1);
@@ -33,7 +31,7 @@ public class BackgroundMusic{
 	}
 
 	public static void playSelect(String soundName){ //plays the selected sound from the soundpool
-		if (mute) return; // if sound is turned off no need to continue
+		if (!soundEnabled) return; // if sound is turned off no need to continue
 		if (soundName.equals("mine"))
 			soundPool.play(mine, 1, 1, 1, 0, 1);
 		if (soundName.equals("gold")){
@@ -50,7 +48,7 @@ public class BackgroundMusic{
 	}
 
 	public static final void playMusic(){ //plays the background music
-		if (mute) return;
+		if (!soundEnabled) return;
 		if (!music.isPlaying()){
 			music.seekTo(0);	
 			music.start();
@@ -59,19 +57,27 @@ public class BackgroundMusic{
 	}
 
 	public static final void pauseMusic(){ //pauses the music
-		if (mute) return;
+		if (!soundEnabled) return;
 		if (music.isPlaying()) music.pause();
 	}
 
 	public static final void unPauseMusic(){ //pauses the music
-		if (mute) return;
+		if (!soundEnabled) return;
 		if (!music.isPlaying()) music.start();
 	}
 
 	public static final void release(){ //kill everything
-		if (mute) return;
+		if (soundEnabled) return;
 		soundPool.release();
 		music.stop();
 		music.release();
+	}
+	
+	public static boolean isSoundEnabled(){
+		return soundEnabled;
+	}
+	
+	public static void setSoundEnabled(boolean b){
+		soundEnabled = b;
 	}
 }
