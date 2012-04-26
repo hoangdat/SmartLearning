@@ -7,11 +7,11 @@ import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.Gold;
 import no.ntnu.tdt4240.views.Mine;
 
-public class NormalMode extends GameMode {
+public class GoldMineMode extends GameMode {
 
 	private int numberOfGoldLeft;
 	
-	public NormalMode(GameActivity ga) {
+	public GoldMineMode(GameActivity ga) {
 		super(ga);
 		numberOfGoldLeft = SettingsActivity.getAmountOfGold(ga);
 	}
@@ -28,7 +28,8 @@ public class NormalMode extends GameMode {
 			else if (cell instanceof Gold){
 				numberOfGoldLeft--;
 			}
-			if (isGameOver()) gameActivity.endGame();
+			else gameActivity.switchPlayer();
+			if (isGameOver()) gameActivity.announceWinner();
 		}
 	}
 

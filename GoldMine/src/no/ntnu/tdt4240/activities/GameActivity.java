@@ -3,7 +3,7 @@ package no.ntnu.tdt4240.activities;
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.models.GameMode;
-import no.ntnu.tdt4240.models.NormalMode;
+import no.ntnu.tdt4240.models.GoldMineMode;
 import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.PlayerView;
@@ -13,22 +13,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class GameActivity extends Activity  {
 
 	private Player activePlayer;
-	Player player1 = new Player("Player 1");
-	Player player2 = new Player("Player 2");
+	Player player1; 
+	Player player2;
 	GameBoard gameBoard;
 	GridView mineField;
 	GameMode gameMode;
+	PlayerView view1;
+	PlayerView view2;
 	
-	TextView middleText;
+	TextView announceView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,10 @@ public class GameActivity extends Activity  {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.game);
+
+		player1 = new Player(SettingsActivity.getPlayer1Name(this));
+		player2 = new Player(SettingsActivity.getPlayer2Name(this));
+		
 		gameBoard = new GameBoard(this);
 		activePlayer = player1;
 		createPlayerViews();
@@ -49,8 +56,6 @@ public class GameActivity extends Activity  {
 		mineField.setPadding(0, 0, 0, 0);
 		
 		setGameMode();
-		player1.makeActive(this);
-		player2.makeDeactive(this);
 		
 		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
 		mineField.setAdapter(mineFieldAdapter);
@@ -60,57 +65,72 @@ public class GameActivity extends Activity  {
 				int row =position/gameBoard.getNumberOfCols();
 	            int col=position%gameBoard.getNumberOfCols();
 	            
+	            boolean didRipple = false;
 	            if(((Cell)view).needsRipple()) {
 	            	gameBoard.rippleFrom(row, col);
+	            	didRipple = true;
 	            }
 	            	
-	            Cell clickedCell = ((Cell)view).onClick();
+	            Cell clickedCell = didRipple ? (Cell)view : ((Cell)view).onClick();
 	            gameMode.onClickedCell(clickedCell);
 			}
 		});
 		
-		middleText = (TextView) findViewById(R.id.middleTextView);
+		announceView = (TextView) findViewById(R.id.middleTextView);
 		
 		Typeface tf = Typeface.createFromAsset(getAssets(), "font/baveuse.otf");
-		middleText.setTypeface(tf);
-		middleText.setVisibility(View.GONE);
+		announceView.setTypeface(tf);
+		announceView.setVisibility(View.GONE);
+
+		announceActivePlayer();
 	}
 
 	private void setGameMode() {
-		gameMode = new NormalMode(this);
+		gameMode = new GoldMineMode(this);
 	}
 
 	private void createPlayerViews() {
-		PlayerView view1 = (PlayerView) findViewById(R.id.playerView1);
+		view1 = (PlayerView) findViewById(R.id.playerView1);
 		player1.setPlayerView(view1);
 
-		PlayerView view2 = (PlayerView) findViewById(R.id.playerView2);
+		view2 = (PlayerView) findViewById(R.id.playerView2);
 		player2.setPlayerView(view2);
+		view2.getBackground().setAlpha(255);
+		view1.makeActive();
 	}
 
 	public void switchPlayer() {
-		activePlayer.makeDeactive(this);
 		if (activePlayer == player1) {
-			makeActive(player2);
+			view2.makeActive();
+			activePlayer = player2;
+			view1.makeDeactive();
 		} else {
-			makeActive(player1);
+			view1.makeActive();
+			activePlayer = player1;
+			view2.makeDeactive();
 		}
+		view1.invalidate();
+		view2.invalidate();
+		announceActivePlayer();
 	}
-
-	private void makeActive(Player player) {
-		activePlayer = player;
-		player.makeActive(this);
-	}
-
+	
 	public void addToScore(int scoreChange) {
 		activePlayer.addToScore(scoreChange);
 	}
 
-	public void endGame() {
+	public void announceActivePlayer() {
+		announceView.setText(activePlayer.toString());
+		Animation fadeout = AnimationUtils.loadAnimation(this, R.anim.fadeout);
+		announceView.setVisibility(View.VISIBLE);
+		announceView.startAnimation(fadeout);
+		announceView.setVisibility(View.INVISIBLE);
+	}
+	
+	public void announceWinner() {
 		Player winner = gameMode.desideWinner(player1, player2);
 		
-		middleText.setText(winner + " WON!");
-		middleText.setVisibility(View.VISIBLE);
+		announceView.setText(winner + " WON!");
+		announceView.setVisibility(View.VISIBLE);
 	}
 
 }
