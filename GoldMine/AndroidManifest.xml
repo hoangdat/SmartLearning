@@ -34,6 +34,12 @@
             android:label="@string/instructions_label" 
             android:theme="@android:style/Theme.Dialog" >
         </activity>
+        <activity 
+            android:name=".activities.GoldMineInstructionActivity">     
+        </activity>
+        <activity 
+            android:name=".activities.PureGoldInstructionActivity">     
+        </activity>
         <activity
             android:name=".activities.AboutActivity"
             android:label="@string/about_label"
