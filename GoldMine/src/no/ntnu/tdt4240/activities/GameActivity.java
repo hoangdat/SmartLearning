@@ -11,7 +11,9 @@ import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -21,7 +23,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class GameActivity extends Activity  {
+public class GameActivity extends Activity {
 
 	private Player activePlayer;
 	Player player1; 
@@ -122,7 +124,7 @@ public class GameActivity extends Activity  {
 			view1.makeActive();
 			activePlayer = player1;
 			view2.makeDeactive();
-		}
+		}	
 		view1.invalidate();
 		view2.invalidate();
 		announceActivePlayer();
@@ -143,8 +145,10 @@ public class GameActivity extends Activity  {
 	public void announceWinner() {
 		Player winner = gameMode.decideWinner(player1, player2);
 		
+		Animation fadein = AnimationUtils.loadAnimation(this, R.anim.fadein);
 		announceView.setText(winner + " WON!");
 		announceView.setVisibility(View.VISIBLE);
+		announceView.startAnimation(fadein);
 	}
-
+	
 }
