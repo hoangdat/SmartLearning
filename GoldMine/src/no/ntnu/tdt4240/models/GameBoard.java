@@ -21,7 +21,6 @@ public class GameBoard {
 		numberofmines = SettingsActivity.getNumberOfMines(context);
 		amountofgold = SettingsActivity.getAmountOfGold(context);
 		createBoard(amountofgold, numberofmines);
-		// ta hensyn til at det ikke kan være flere miner/gull enn ruter
 	}
 
 	private void addGold(int gold) {
