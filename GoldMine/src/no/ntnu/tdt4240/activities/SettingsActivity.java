@@ -9,10 +9,6 @@ import android.view.WindowManager;
 
 public class SettingsActivity extends PreferenceActivity {
 	
-	private static final String NUMBER_OF_MINES = "numberofminesvar";
-	private static final String NUMBER_OF_MINES_DEFAULT = "45";
-    private static final String AMOUNT_OF_GOLD = "amountofgoldvar";
-    private static final String AMOUNT_OF_GOLD_DEFAULT = "25";
     private static final String NAME_PLAYER_1 = "player1name";
     private static final String NAME_PLAYER_1_DEFAULT = "Player 1";
     private static final String NAME_PLAYER_2 = "player2name";
@@ -34,16 +30,6 @@ public class SettingsActivity extends PreferenceActivity {
 
 	}
 	
-	public static int getNumberOfMines(Context context) {
-        return Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).
-            getString(NUMBER_OF_MINES, NUMBER_OF_MINES_DEFAULT));
-    }
-	
-	public static int getAmountOfGold(Context context) {
-        return Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).
-            getString(AMOUNT_OF_GOLD, AMOUNT_OF_GOLD_DEFAULT));
-    }
-
 	public static String getPlayer1Name(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context).
 				getString(NAME_PLAYER_1, NAME_PLAYER_1_DEFAULT);

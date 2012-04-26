@@ -19,16 +19,6 @@ public class GoldMode extends GameMode{
 	}
 
 	@Override
-	public boolean hasGold() {
-		return true;
-	}
-
-	@Override
-	public boolean hasMines() {
-		return false;
-	}
-
-	@Override
 	public int calculateScore(Cell cell) {
 		if (cell instanceof Gold)
 			return 10;
@@ -46,5 +36,15 @@ public class GoldMode extends GameMode{
 	public Player desideWinner(Player player1, Player player2) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int amountOfGold() {
+		return 50;
+	}
+
+	@Override
+	public int numberOfMines() {
+		return 0;
 	}
 }

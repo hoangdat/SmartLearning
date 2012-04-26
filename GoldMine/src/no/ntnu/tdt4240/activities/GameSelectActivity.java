@@ -13,16 +13,24 @@ public class GameSelectActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		startActivity(new Intent(this, GameActivity.class));
-
-		
 //		// hide title
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 //
 //        // Hide notification bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //
-//        setContentView(R.layout.game);
+        setContentView(R.layout.choosegamemode);
+
+		
+		/*
+		Intent intent = new Intent(this, GameActivity.class);
+		Bundle b = new Bundle();
+		b.putString("gamemode", "goldminemode");
+		intent.putExtras(b); //Put your id to your next Intent
+		startActivity(intent);
+		finish();
+*/
+		
         
 	}
 	

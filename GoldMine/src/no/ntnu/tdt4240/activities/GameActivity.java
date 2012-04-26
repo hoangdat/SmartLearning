@@ -45,17 +45,18 @@ public class GameActivity extends Activity  {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.game);
+		
+		setGameMode();
 
 		player1 = new Player(SettingsActivity.getPlayer1Name(this));
 		player2 = new Player(SettingsActivity.getPlayer2Name(this));
 		
-		gameBoard = new GameBoard(this);
+		gameBoard = new GameBoard(this, gameMode.amountOfGold(), gameMode.numberOfMines());
 		activePlayer = player1;
 		createPlayerViews();
 		mineField = (GridView) findViewById(R.id.MineField);
 		mineField.setPadding(0, 0, 0, 0);
 		
-		setGameMode();
 		
 		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
 		mineField.setAdapter(mineFieldAdapter);
@@ -76,17 +77,26 @@ public class GameActivity extends Activity  {
 			}
 		});
 		
-		announceView = (TextView) findViewById(R.id.middleTextView);
-		
-		Typeface tf = Typeface.createFromAsset(getAssets(), "font/baveuse.otf");
-		announceView.setTypeface(tf);
-		announceView.setVisibility(View.GONE);
+		initAnnounceView();
 
 		announceActivePlayer();
 	}
 
+	private void initAnnounceView() {
+		announceView = (TextView) findViewById(R.id.middleTextView);	
+		Typeface tf = Typeface.createFromAsset(getAssets(), "font/baveuse.otf");
+		announceView.setTypeface(tf);
+		announceView.setVisibility(View.GONE);
+	}
+
 	private void setGameMode() {
-		gameMode = new GoldMineMode(this);
+		
+		Bundle b = getIntent().getExtras();
+		String gm = b.getString("gamemode");
+		
+		if (gm.equals("goldminemode")){
+			gameMode = new GoldMineMode(this);
+		}
 	}
 
 	private void createPlayerViews() {

@@ -13,7 +13,7 @@ public class GoldMineMode extends GameMode {
 	
 	public GoldMineMode(GameActivity ga) {
 		super(ga);
-		numberOfGoldLeft = SettingsActivity.getAmountOfGold(ga);
+		numberOfGoldLeft = amountOfGold();
 	}
 
 	@Override
@@ -34,13 +34,13 @@ public class GoldMineMode extends GameMode {
 	}
 
 	@Override
-	public boolean hasGold() {
-		return true;
+	public int amountOfGold() {
+		return 40;
 	}
 
 	@Override
-	public boolean hasMines() {
-		return true;
+	public int numberOfMines() {
+		return 20;
 	}
 
 	@Override
