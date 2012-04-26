@@ -28,6 +28,7 @@ public class BackgroundMusic{
 		gold4 = soundPool.load(context, R.raw.gold4, 1);
 		blank = soundPool.load(context, R.raw.blank, 1);
 		music = MediaPlayer.create(context, R.raw.backgroundmusic);
+		
 	}
 
 	public static void playSelect(String soundName){ //plays the selected sound from the soundpool
@@ -63,7 +64,10 @@ public class BackgroundMusic{
 
 	public static final void unPauseMusic(){ //pauses the music
 		if (!soundEnabled) return;
-		if (!music.isPlaying()) music.start();
+		if (!music.isPlaying()){
+			music.start();
+			music.setLooping(true);
+		}
 	}
 
 	public static final void release(){ //kill everything
