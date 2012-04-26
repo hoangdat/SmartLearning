@@ -58,12 +58,8 @@ public class GameActivity extends Activity {
 		gameBoard = new GameBoard(this, gameMode.amountOfGold(), gameMode.numberOfMines());
 		activePlayer = player1;
 		createPlayerViews();
-
 		initMineField();
-		
 		initAnnounceView();
-
-		announceActivePlayer();
 	}
 
 	private void initMineField() {
