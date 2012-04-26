@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
+
+	<EditTextPreference 
+        android:name="Name of player 1"
+        android:title="Name of player 1"
+        android:summary="Set the name of player 1"
+        android:defaultValue="Player 1"
+        android:key="player1name" />
+
+	<EditTextPreference 
+        android:name="Name of player 2"
+        android:title="Name of player 2"
+        android:summary="Set the name of player 2"
+        android:defaultValue="Player 2"
+        android:key="player2name" />
+    
     <ListPreference
         android:defaultValue="1"
         android:dialogTitle="Game mode"

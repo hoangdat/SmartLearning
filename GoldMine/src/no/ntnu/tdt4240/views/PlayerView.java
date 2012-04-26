@@ -12,6 +12,8 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class PlayerView extends View {
@@ -71,14 +73,9 @@ public class PlayerView extends View {
 		
 		canvas.drawText(getName(), startName, 35, namePaint);
 		
-		
 		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.cow);
 		
-		
 		canvas.drawBitmap(bm, 7, 50, namePaint);
-		
-		
-		
 		
 		float scoreWidth = namePaint.measureText(getScore());
 		float startScore = getWidth()/2 - scoreWidth/2;
@@ -92,15 +89,13 @@ public class PlayerView extends View {
 		return player.getScore() + "";
 	}
 	
-	public void makeActive(Context context) {
-//		Animation fadein = AnimationUtils.loadAnimation(context, R.anim.fadein);
-//		startAnimation(fadein);
-		getBackground().setAlpha(255);
+	public void makeActive() {
+		Animation activePlayerView = AnimationUtils.loadAnimation(getContext(), R.anim.activeplayerview);
+		startAnimation(activePlayerView);
+		
 	}
 	
-	public void makeDeactive(Context context) {
-//		Animation fadeout = AnimationUtils.loadAnimation(context, R.anim.fadeout);
-//		startAnimation(fadeout);
-		getBackground().setAlpha(50);
+	public void makeDeactive() {
+		clearAnimation();
 	}
 }

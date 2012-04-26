@@ -28,7 +28,8 @@ public class GoldMineMode extends GameMode {
 			else if (cell instanceof Gold){
 				numberOfGoldLeft--;
 			}
-			if (isGameOver()) gameActivity.endGame();
+			else gameActivity.switchPlayer();
+			if (isGameOver()) gameActivity.announceWinner();
 		}
 	}
 

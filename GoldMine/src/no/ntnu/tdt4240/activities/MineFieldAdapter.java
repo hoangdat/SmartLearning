@@ -4,12 +4,9 @@ import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.views.Cell;
 import android.content.Context;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class MineFieldAdapter extends BaseAdapter {
 
