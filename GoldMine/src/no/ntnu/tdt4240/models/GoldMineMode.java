@@ -35,12 +35,12 @@ public class GoldMineMode extends GameMode {
 
 	@Override
 	public int amountOfGold() {
-		return 40;
+		return 5;
 	}
 
 	@Override
 	public int numberOfMines() {
-		return 20;
+		return 10;
 	}
 
 	@Override

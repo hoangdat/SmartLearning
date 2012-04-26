@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/nightbackground"
+  	>
+
+  
+    <ImageView
+        android:id="@+id/goldminemode"
+        android:layout_width="474px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="40px"
+        android:layout_marginLeft="23px"
+        android:src="@drawable/goldmine_mode" />
+
+    <ImageView
+        android:id="@+id/goldmode"
+        android:layout_width="474px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/goldminemode"
+        android:layout_marginRight="23px"
+        android:src="@drawable/puregold_mode" />
+    
+</RelativeLayout>
