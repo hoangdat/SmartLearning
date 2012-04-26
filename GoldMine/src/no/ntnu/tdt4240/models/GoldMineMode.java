@@ -1,13 +1,12 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.activities.GameActivity;
-import no.ntnu.tdt4240.activities.SettingsActivity;
 import no.ntnu.tdt4240.views.Blank;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.Gold;
 import no.ntnu.tdt4240.views.Mine;
 
-public class GoldMineMode extends GameMode {
+public class GoldMineMode extends GameMode{
 
 	private int numberOfGoldLeft;
 	
@@ -34,12 +33,12 @@ public class GoldMineMode extends GameMode {
 
 	@Override
 	public int amountOfGold() {
-		return 5;
+		return 40;
 	}
 
 	@Override
 	public int numberOfMines() {
-		return 10;
+		return 20;
 	}
 
 	@Override

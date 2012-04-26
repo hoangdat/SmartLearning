@@ -31,7 +31,7 @@ private int numberOfGoldLeft;
 
 	@Override
 	public int amountOfGold() {
-		return 20;
+		return 60;
 	}
 
 	@Override
@@ -41,7 +41,10 @@ private int numberOfGoldLeft;
 	
 	@Override
 	public int calculateScore(Cell cell) {
+		if (cell instanceof Gold){
 			return 777;
+		}
+		return 0;
 	}
 
 	@Override

@@ -33,9 +33,9 @@ public class GameActivity extends Activity {
 	GameMode gameMode;
 	PlayerView view1;
 	PlayerView view2;
-	
+
 	TextView announceView;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,41 +48,39 @@ public class GameActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.game);
-		
+
 		setGameMode();
 
 		player1 = new Player(SettingsActivity.getPlayer1Name(this));
 		player2 = new Player(SettingsActivity.getPlayer2Name(this));
-		
+
 		gameBoard = new GameBoard(this, gameMode.amountOfGold(), gameMode.numberOfMines());
 		activePlayer = player1;
 		createPlayerViews();
 		mineField = (GridView) findViewById(R.id.MineField);
 		mineField.setPadding(0, 0, 0, 0);
-		
-		
+
+
 		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
 		mineField.setAdapter(mineFieldAdapter);
 		mineField.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 				int row =position/gameBoard.getNumberOfCols();
-	            int col=position%gameBoard.getNumberOfCols();
-	            
-	            boolean didRipple = false;
-	            if(((Cell)view).needsRipple()) {
-	            	gameBoard.rippleFrom(row, col);
-	            	didRipple = true;
-	            }
-	            	
-	            Cell clickedCell = didRipple ? (Cell)view : ((Cell)view).onClick();
-	            gameMode.onClickedCell(clickedCell);
+				int col=position%gameBoard.getNumberOfCols();
+
+				boolean didRipple = false;
+				if(((Cell)view).needsRipple()) {
+					gameBoard.rippleFrom(row, col);
+					didRipple = true;
+				}
+
+				Cell clickedCell = didRipple ? (Cell)view : ((Cell)view).onClick();
+				gameMode.onClickedCell(clickedCell);
 			}
 		});
-		
-		initAnnounceView();
 
-		announceActivePlayer();
+		initAnnounceView();
 	}
 
 	private void initAnnounceView() {
@@ -93,10 +91,10 @@ public class GameActivity extends Activity {
 	}
 
 	private void setGameMode() {
-		
+
 		Bundle b = getIntent().getExtras();
 		String gm = b.getString("gamemode");
-		
+
 		if (gm.equals("goldmine")){
 			gameMode = new GoldMineMode(this);
 		}
@@ -127,28 +125,19 @@ public class GameActivity extends Activity {
 		}	
 		view1.invalidate();
 		view2.invalidate();
-		announceActivePlayer();
 	}
-	
+
 	public void addToScore(int scoreChange) {
 		activePlayer.addToScore(scoreChange);
 	}
 
-	public void announceActivePlayer() {
-		announceView.setText(activePlayer.toString());
-		Animation fadeout = AnimationUtils.loadAnimation(this, R.anim.fadeout);
-		announceView.setVisibility(View.VISIBLE);
-		announceView.startAnimation(fadeout);
-		announceView.setVisibility(View.INVISIBLE);
-	}
-	
 	public void announceWinner() {
 		Player winner = gameMode.decideWinner(player1, player2);
-		
+
 		Animation fadein = AnimationUtils.loadAnimation(this, R.anim.fadein);
 		announceView.setText(winner + " WON!");
 		announceView.setVisibility(View.VISIBLE);
 		announceView.startAnimation(fadein);
 	}
-	
+
 }
