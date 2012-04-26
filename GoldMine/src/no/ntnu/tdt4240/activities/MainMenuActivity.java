@@ -4,14 +4,11 @@ import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.sound.BackgroundMusic;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.format.Time;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainMenuActivity extends Activity implements

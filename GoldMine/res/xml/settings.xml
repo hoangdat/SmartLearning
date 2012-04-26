@@ -41,7 +41,6 @@
         android:key="numberofminesvar"
         android:inputType="number"/>
     
-    
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="timeattackvar"

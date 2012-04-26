@@ -4,6 +4,7 @@ import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.models.GameBoard;
 import no.ntnu.tdt4240.models.GameMode;
 import no.ntnu.tdt4240.models.GoldMineMode;
+import no.ntnu.tdt4240.models.GoldMode;
 import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.PlayerView;
@@ -94,8 +95,11 @@ public class GameActivity extends Activity  {
 		Bundle b = getIntent().getExtras();
 		String gm = b.getString("gamemode");
 		
-		if (gm.equals("goldminemode")){
+		if (gm.equals("goldmine")){
 			gameMode = new GoldMineMode(this);
+		}
+		else if (gm.equals("puregold")){
+			gameMode = new GoldMode(this);
 		}
 	}
 

@@ -6,5 +6,32 @@
     android:background="@drawable/nightbackground"
   	>
 
+    <ImageView
+        android:id="@+id/gamechooserheader"
+        android:layout_width="723px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80px"
+        android:src="@drawable/choose_gamemode" />
+
+    <ImageView
+        android:id="@+id/goldminemode"
+        android:layout_width="474px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="40px"
+        android:layout_marginLeft="23px"
+        android:src="@drawable/goldmine_mode" />
+
+    <ImageView
+        android:id="@+id/goldmode"
+        android:layout_width="474px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/goldminemode"
+        android:layout_marginRight="23px"
+        android:src="@drawable/puregold_mode" />
     
 </RelativeLayout>
