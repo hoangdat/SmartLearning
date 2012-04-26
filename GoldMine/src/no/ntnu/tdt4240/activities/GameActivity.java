@@ -62,7 +62,7 @@ public class GameActivity extends Activity {
 		initAnnounceView();
 	}
 
-	private void initMineField() {
+	private void initMineField(){
 		mineField = (GridView) findViewById(R.id.MineField);
 		mineField.setPadding(0, 0, 0, 0);
 
