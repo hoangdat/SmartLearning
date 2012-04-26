@@ -9,6 +9,7 @@ import no.ntnu.tdt4240.models.Player;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.PlayerView;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -39,7 +40,7 @@ public class GameActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
 		// hide title
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -50,16 +51,24 @@ public class GameActivity extends Activity {
 		setContentView(R.layout.game);
 		
 		setGameMode();
-
+		
 		player1 = new Player(SettingsActivity.getPlayer1Name(this));
 		player2 = new Player(SettingsActivity.getPlayer2Name(this));
 		
 		gameBoard = new GameBoard(this, gameMode.amountOfGold(), gameMode.numberOfMines());
 		activePlayer = player1;
 		createPlayerViews();
+
+		initMineField();
+		
+		initAnnounceView();
+
+		announceActivePlayer();
+	}
+
+	private void initMineField() {
 		mineField = (GridView) findViewById(R.id.MineField);
 		mineField.setPadding(0, 0, 0, 0);
-		
 		
 		MineFieldAdapter mineFieldAdapter = new MineFieldAdapter(this, gameBoard);
 		mineField.setAdapter(mineFieldAdapter);
@@ -79,10 +88,6 @@ public class GameActivity extends Activity {
 	            gameMode.onClickedCell(clickedCell);
 			}
 		});
-		
-		initAnnounceView();
-
-		announceActivePlayer();
 	}
 
 	private void initAnnounceView() {
@@ -120,7 +125,7 @@ public class GameActivity extends Activity {
 			view2.makeActive();
 			activePlayer = player2;
 			view1.makeDeactive();
-		} else {
+		} else { 
 			view1.makeActive();
 			activePlayer = player1;
 			view2.makeDeactive();
@@ -145,10 +150,16 @@ public class GameActivity extends Activity {
 	public void announceWinner() {
 		Player winner = gameMode.desideWinner(player1, player2);
 		
-		Animation fadein = AnimationUtils.loadAnimation(this, R.anim.fadein);
-		announceView.setText(winner + " WON!");
-		announceView.setVisibility(View.VISIBLE);
-		announceView.startAnimation(fadein);
+		Bundle bIn = getIntent().getExtras();
+		
+		Intent intent = new Intent(this, WinnerActivity.class);
+		Bundle b = new Bundle();
+		b.putString("winner", winner.toString());
+		b.putInt("score", winner.getScore());
+		b.putString("gamemode", bIn.getString("gamemode"));
+		intent.putExtras(b); //Put your id to your next Intent
+		startActivity(intent);
+		finish();
 	}
 	
 }

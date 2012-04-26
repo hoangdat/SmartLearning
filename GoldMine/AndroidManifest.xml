@@ -30,6 +30,9 @@
             android:name=".activities.SettingsActivity"
             android:label="@string/settings_label" />
         <activity
+            android:name=".activities.WinnerActivity"
+            android:label="@string/settings_label" />
+        <activity
             android:name=".activities.InstructionsActivity"
             android:label="@string/instructions_label" 
             android:theme="@android:style/Theme.Dialog" >
