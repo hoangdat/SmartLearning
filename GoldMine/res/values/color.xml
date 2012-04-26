@@ -6,4 +6,6 @@
     <color name="gold">#EAC117</color>
     <color name="mine">#AEAEAE</color>
     <color name="blank">#ADDFFF</color>
+    <color name="mainmenu">#ffc600</color>
+    <color name="white">#ffffff</color>
 </resources>
