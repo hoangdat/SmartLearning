@@ -34,12 +34,12 @@ public class GoldMineMode extends GameMode {
 	}
 
 	@Override
-	public boolean isItGold() {
+	public boolean hasGold() {
 		return true;
 	}
 
 	@Override
-	public boolean isItMines() {
+	public boolean hasMines() {
 		return true;
 	}
 

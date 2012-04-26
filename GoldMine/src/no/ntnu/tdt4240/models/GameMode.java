@@ -12,8 +12,8 @@ public abstract class GameMode {
 	}
 
 	public abstract void onClickedCell(Cell cell);
-	public abstract boolean isItGold();
-	public abstract boolean isItMines();
+	public abstract boolean hasGold();
+	public abstract boolean hasMines();
 	
 	public abstract boolean isGameOver();
 	public abstract int calculateScore(Cell cell);

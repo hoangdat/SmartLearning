@@ -12,6 +12,8 @@ public class Blank extends Cell{
 	private Paint goldPaint;
 	private Paint minePaint;
 	private boolean needsRipple;
+	private boolean noMines = false; 
+	private boolean noGold = false; 
 	
 	public Blank(Context context, int gold, int mines) {
 		super(context);
@@ -20,6 +22,10 @@ public class Blank extends Cell{
 		initPaint();
 		if (!isClicked() && isEmpty())
 			needsRipple = true;
+		if(gold == 0)
+			noGold = true;
+		if (mines == 0)
+			noMines = true;
 	}
 	
 	@Override
@@ -42,14 +48,12 @@ public class Blank extends Cell{
 
 	@Override
 	public void changeImage() {
-
-		if(isEmpty()){
+		if(isEmpty())
 			this.setBackgroundResource(R.drawable.buttonclickedblank);
-		}
-		else{
+		if(noGold || noMines)
+			this.setBackgroundResource(R.drawable.buttonclickedonenumber);
+		else
 			this.setBackgroundResource(R.drawable.buttonclickednonblank);
-		}
-		
 	}
 
 	private boolean isEmpty() {
@@ -57,9 +61,17 @@ public class Blank extends Cell{
 	}
 		
 	@Override
-	protected void onDraw(Canvas canvas) {
+	protected void onDraw(Canvas canvas){
 		super.onDraw(canvas);
-		if (isClicked() && !isEmpty()) {
+		if (isClicked() && !isEmpty()){
+			if(noMines){
+				canvas.drawText(numberOfAdjacentGold + "",17, 29, goldPaint);
+				return;
+			}
+			if(noGold){
+				canvas.drawText(numberOfAdjacentMines + "",16, 29, minePaint);
+				return;
+			}
 			canvas.drawText(numberOfAdjacentGold + "",4, 29, goldPaint);
 			canvas.drawText(numberOfAdjacentMines + "",24, 29, minePaint);
 		}
