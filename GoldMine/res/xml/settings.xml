@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-
 	<EditTextPreference 
         android:name="Name of player 1"
         android:title="Name of player 1"
@@ -16,48 +15,11 @@
         android:defaultValue="Player 2"
         android:key="player2name" />
     
-    <ListPreference
-        android:defaultValue="1"
-        android:dialogTitle="Game mode"
-        android:entries="@array/gamemode_options"
-        android:entryValues="@array/gamemode_values"
-        android:key="gamemodevar"
-        android:summary="Set default game mode"
-        android:title="Game mode" />
-
-    <EditTextPreference 
-        android:name="Amount of gold"
-        android:summary="Set amount of gold"
-        android:defaultValue="20"
-        android:title="Amount of gold"
-        android:key="amountofgoldvar"
-        android:inputType="number"/>
-    
-    <EditTextPreference 
-        android:name="Number of mines"
-        android:summary="Set number of mines"
-        android:defaultValue="45"
-        android:title="Number of mines"
-        android:key="numberofminesvar"
-        android:inputType="number"/>
-    
     <CheckBoxPreference
+    	android:id = "@+id/sound"
         android:defaultValue="true"
-        android:key="timeattackvar"
-        android:summary="Enable or disable time attack"
-        android:title="Time Attack" />
-
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="backgroundmusicvar"
-        android:summary="Enable or disable background music"
-        android:title="Music" />
-   
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="soundeffectsvar"
-        android:summary="Enable or disable sound effects"
-        android:title="Sound effects" />
-    
+        android:key="soundvar"
+        android:summary="Enable or disable sound"
+        android:title="Sound" />
     
 </PreferenceScreen>

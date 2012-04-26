@@ -141,7 +141,7 @@ public class GameActivity extends Activity  {
 	}
 	
 	public void announceWinner() {
-		Player winner = gameMode.desideWinner(player1, player2);
+		Player winner = gameMode.decideWinner(player1, player2);
 		
 		announceView.setText(winner + " WON!");
 		announceView.setVisibility(View.VISIBLE);

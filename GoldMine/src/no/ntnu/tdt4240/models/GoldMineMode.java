@@ -28,7 +28,6 @@ public class GoldMineMode extends GameMode {
 			else if (cell instanceof Gold){
 				numberOfGoldLeft--;
 			}
-			else gameActivity.switchPlayer();
 			if (isGameOver()) gameActivity.announceWinner();
 		}
 	}
@@ -45,11 +44,10 @@ public class GoldMineMode extends GameMode {
 
 	@Override
 	public int calculateScore(Cell cell) {
-
 		if (cell instanceof Gold)
-			return 751;
+			return 777;
 		else if (cell instanceof Mine)
-			return -1344;
+			return -999;
 		return 0;
 	}
 
@@ -59,7 +57,7 @@ public class GoldMineMode extends GameMode {
 	}
 
 	@Override
-	public Player desideWinner(Player player1, Player player2) {
+	public Player decideWinner(Player player1, Player player2) {
 		return player1.getScore() > player2.getScore() ? player1 : player2;
 	}
 }

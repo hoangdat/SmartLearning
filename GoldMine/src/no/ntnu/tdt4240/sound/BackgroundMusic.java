@@ -17,11 +17,8 @@ public class BackgroundMusic{
 	private static int blank;
 	private static MediaPlayer music;
 	private static boolean mute = false;
-	private static Context conny;
 
 	public static void loadSound(Context context) {
-		conny = context;
-		mute = SettingsActivity.isMuted(context); // should there be sound?
 		soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
 		mine = soundPool.load(context, R.raw.mine, 1);
 		gold1 = soundPool.load(context, R.raw.gold1, 1);
@@ -73,5 +70,13 @@ public class BackgroundMusic{
 		soundPool.release();
 		music.stop();
 		music.release();
+	}
+	
+	public static boolean isMute(){
+		return mute;
+	}
+	
+	public static void setMute(boolean b){
+		mute = b;
 	}
 }

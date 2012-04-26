@@ -1,50 +1,57 @@
 package no.ntnu.tdt4240.models;
 
 import no.ntnu.tdt4240.activities.GameActivity;
+import no.ntnu.tdt4240.views.Blank;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.Gold;
+import no.ntnu.tdt4240.views.Mine;
 
 public class GoldMode extends GameMode{
 	
+private int numberOfGoldLeft;
+	
 	public GoldMode(GameActivity ga) {
 		super(ga);
-		// TODO Auto-generated constructor stub
+		numberOfGoldLeft = amountOfGold();
 	}
-
-	//int numberOfMines=R.xml.;
-	int numberOfGold;
 
 	@Override
 	public void onClickedCell(Cell cell) {
-	}
-
-	@Override
-	public int calculateScore(Cell cell) {
-		if (cell instanceof Gold)
-			return 10;
-		else
-			return 0;
-	}
-
-	@Override
-	public boolean isGameOver() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Player desideWinner(Player player1, Player player2) {
-		// TODO Auto-generated method stub
-		return null;
+		if (cell != null) {
+			gameActivity.addToScore(calculateScore(cell));
+			if (cell instanceof Blank) {
+				gameActivity.switchPlayer();
+			}
+			else if (cell instanceof Gold){
+				numberOfGoldLeft--;
+			}
+			if (isGameOver()) gameActivity.announceWinner();
+		}
 	}
 
 	@Override
 	public int amountOfGold() {
-		return 50;
+		return 20;
 	}
 
 	@Override
 	public int numberOfMines() {
 		return 0;
 	}
+	
+	@Override
+	public int calculateScore(Cell cell) {
+			return 777;
+	}
+
+	@Override
+	public boolean isGameOver(){
+		return numberOfGoldLeft == 0;
+	}
+
+	@Override
+	public Player decideWinner(Player player1, Player player2) {
+		return player1.getScore() > player2.getScore() ? player1 : player2;
+	}
+	
 }
