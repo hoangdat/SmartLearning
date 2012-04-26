@@ -3,13 +3,18 @@ package no.ntnu.tdt4240.activities;
 import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.sound.BackgroundMusic;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class SettingsActivity extends PreferenceActivity {
+public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
 	private static final String NAME_PLAYER_1 = "player1name";
 	private static final String NAME_PLAYER_1_DEFAULT = "Player 1";
@@ -23,6 +28,8 @@ public class SettingsActivity extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		addPreferencesFromResource(R.xml.settings);
+		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+
 	}
 
 	public static String getPlayer1Name(Context context) {
@@ -34,25 +41,24 @@ public class SettingsActivity extends PreferenceActivity {
 		return PreferenceManager.getDefaultSharedPreferences(context).
 				getString(NAME_PLAYER_2, NAME_PLAYER_2_DEFAULT);
 	}
-	
+
 	public static boolean isSoundEnabled(Context context){
 		return PreferenceManager.getDefaultSharedPreferences(context).
 				getBoolean(SOUND_ENABLED, SOUND_ENABLED_DEFAULT);
 	}
 
-	@Override //når du velger mute
-	public boolean onMenuItemSelected(int featureId, MenuItem item){
-		if(item.getItemId() == R.id.sound){ //funker ikke! OMG!
+
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key){
+		if (key.equals("soundvar")){
 			if (BackgroundMusic.isSoundEnabled()){
-				BackgroundMusic.setSoundEnabled(false);
 				BackgroundMusic.pauseMusic();
+				BackgroundMusic.setSoundEnabled(false);
 			}
 			else{
 				BackgroundMusic.setSoundEnabled(true);
 				BackgroundMusic.unPauseMusic();
 			}
 		}
-		return super.onMenuItemSelected(featureId, item);
 	}
 
 }

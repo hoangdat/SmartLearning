@@ -19,4 +19,6 @@
 		The number with a gold color indicates the amount of adjacent gold cells this cell has and the grey number indicates how many adjacent mines this cell has.
 		The game ends when there is no more cells with gold.
 	</string>
+	<string name="tryagain">Try again</string>
+	<string name="mainmenu">Main Menu</string>
 </resources>

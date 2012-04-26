@@ -45,7 +45,7 @@ android.view.View.OnClickListener {
 
 	private void initiateMenuElement(TextView textButton) {
 		Typeface tf = Typeface.createFromAsset(getAssets(), "font/baveuse.otf");
-		textButton.setTextColor(getResources().getColor(R.color.mainmenu));
+		textButton.setTextColor(getResources().getColor(R.color.supergold));
 		textButton.setOnClickListener(this);
 		textButton.setTypeface(tf);
 		textButton.setTextSize(40);

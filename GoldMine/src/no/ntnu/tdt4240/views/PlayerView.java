@@ -36,8 +36,7 @@ public class PlayerView extends View {
 	private void init() {
 		namePaint = new Paint();
 		namePaint.setTextSize(24);
-//		paint.setColor(R.color.blank);
-		namePaint.setColor(Color.RED);
+		namePaint.setColor(getResources().getColor(R.color.supergold));
 		setBackgroundResource(R.drawable.playerbox_simple);
 		Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "font/baveuse.otf");
 		namePaint.setTypeface(tf);
