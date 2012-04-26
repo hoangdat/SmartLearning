@@ -5,6 +5,7 @@ import no.ntnu.tdt4240.sound.BackgroundMusic;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,6 +37,11 @@ public class MainMenuActivity extends Activity implements android.view.View.OnCl
         BackgroundMusic.loadSound(this);
     	BackgroundMusic.playMusic();
         
+    }
+    
+    public boolean isDay(){
+    	Time time = new Time();
+    	return (time.hour > 6 && time.hour < 18);
     }
 
 	public void onClick(View v) {
