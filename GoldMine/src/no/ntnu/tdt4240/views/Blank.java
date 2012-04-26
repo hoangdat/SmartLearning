@@ -65,11 +65,11 @@ public class Blank extends Cell{
 		super.onDraw(canvas);
 		if (isClicked() && !isEmpty()){
 			if(noMines){
-				canvas.drawText(numberOfAdjacentGold + "",17, 29, goldPaint);
+				canvas.drawText(numberOfAdjacentGold + "",14, 29, goldPaint);
 				return;
 			}
 			if(noGold){
-				canvas.drawText(numberOfAdjacentMines + "",16, 29, minePaint);
+				canvas.drawText(numberOfAdjacentMines + "",14, 29, minePaint);
 				return;
 			}
 			canvas.drawText(numberOfAdjacentGold + "",4, 29, goldPaint);
