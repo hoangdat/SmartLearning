@@ -52,6 +52,7 @@
         android:key="backgroundmusicvar"
         android:summary="Enable or disable background music"
         android:title="Music" />
+   
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="soundeffectsvar"

@@ -17,8 +17,10 @@ public class BackgroundMusic{
 	private static int blank;
 	private static MediaPlayer music;
 	private static boolean mute = false;
+	private static Context conny;
 
 	public static void loadSound(Context context) {
+		conny = context;
 		mute = SettingsActivity.isMuted(context); // should there be sound?
 		soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
 		mine = soundPool.load(context, R.raw.mine, 1);

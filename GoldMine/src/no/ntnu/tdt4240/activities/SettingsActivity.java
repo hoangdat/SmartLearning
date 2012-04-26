@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.WindowManager;
 
 public class SettingsActivity extends PreferenceActivity {
@@ -54,9 +55,16 @@ public class SettingsActivity extends PreferenceActivity {
 				getString(NAME_PLAYER_2, NAME_PLAYER_2_DEFAULT);
 	}
 	
+	
 	//TODO - DETTE ER EN DUMMYMETODE
 	public static boolean isMuted(Context context){
 		return isMuted;
+	}
+	
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// TODO Auto-generated method stub
+		return super.onMenuItemSelected(featureId, item);
 	}
 	
 }
