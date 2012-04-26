@@ -52,6 +52,7 @@ public class BackgroundMusic{
 		if (!music.isPlaying()){
 			music.seekTo(0);	
 			music.start();
+			music.setLooping(true);
 		}
 	}
 
