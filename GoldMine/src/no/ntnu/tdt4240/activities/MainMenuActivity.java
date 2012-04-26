@@ -38,8 +38,7 @@ public class MainMenuActivity extends Activity implements
 		initiateMenuElement(aboutButton);
 		initiateMenuElement(exitButton);
 		
-		
-		
+		//music
 		BackgroundMusic.loadSound(this);
 		BackgroundMusic.playMusic();
 	}
@@ -72,4 +71,8 @@ public class MainMenuActivity extends Activity implements
 		}
 	}
 	
+	@Override
+	protected void onDestroy() {
+		BackgroundMusic.release();
+	}
 }
