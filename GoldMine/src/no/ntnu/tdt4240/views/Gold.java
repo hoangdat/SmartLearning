@@ -1,6 +1,6 @@
 package no.ntnu.tdt4240.views;
 import no.ntnu.tdt4240.R;
-import no.ntnu.tdt4240.sound.BackgroundMusic;
+import no.ntnu.tdt4240.sound.Sounds;
 import android.content.Context;
 
 public class Gold extends Cell {
@@ -16,7 +16,7 @@ public class Gold extends Cell {
 
 	@Override
 	public void playSound() {
-		BackgroundMusic.playSelect("gold");
+		Sounds.playSelect("gold");
 	}
 
 }

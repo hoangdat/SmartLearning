@@ -1,7 +1,7 @@
 package no.ntnu.tdt4240.activities;
 
 import no.ntnu.tdt4240.R;
-import no.ntnu.tdt4240.sound.BackgroundMusic;
+import no.ntnu.tdt4240.sound.Sounds;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -46,13 +46,13 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
 
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key){
 		if (key.equals("soundvar")){
-			if (BackgroundMusic.isSoundEnabled()){
-				BackgroundMusic.pauseMusic();
-				BackgroundMusic.setSoundEnabled(false);
+			if (Sounds.isSoundEnabled()){
+				Sounds.pauseMusic();
+				Sounds.setSoundEnabled(false);
 			}
 			else{
-				BackgroundMusic.setSoundEnabled(true);
-				BackgroundMusic.unPauseMusic();
+				Sounds.setSoundEnabled(true);
+				Sounds.unPauseMusic();
 			}
 		}
 	}

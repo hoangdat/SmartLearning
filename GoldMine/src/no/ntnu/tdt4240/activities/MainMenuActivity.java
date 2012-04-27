@@ -1,7 +1,7 @@
 package no.ntnu.tdt4240.activities;
 
 import no.ntnu.tdt4240.R;
-import no.ntnu.tdt4240.sound.BackgroundMusic;
+import no.ntnu.tdt4240.sound.Sounds;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -39,8 +39,8 @@ android.view.View.OnClickListener {
 		initiateMenuElement(exitButton);
 
 		//music
-		BackgroundMusic.loadSound(this);
-		BackgroundMusic.playMusic();
+		Sounds.loadSound(this);
+		Sounds.playMusic();
 	}
 	
 	/** 
@@ -79,6 +79,6 @@ android.view.View.OnClickListener {
 
 	@Override
 	protected void onDestroy() {
-		BackgroundMusic.release();
+		Sounds.release();
 	}
 }
