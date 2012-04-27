@@ -27,10 +27,8 @@ public class InstructionsActivity extends TabActivity {
         Intent songsIntent = new Intent(this, GoldMineInstructionActivity.class);
         goldminespec.setContent(songsIntent);
  
- 
         // Adding all TabSpec to TabHost
-        tabHost.addTab(puregoldspec); 
-        tabHost.addTab(goldminespec); 
-        
+        tabHost.addTab(puregoldspec);
+        tabHost.addTab(goldminespec);
     }
 }
