@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class GameSelectActivity extends Activity implements android.view.View.OnClickListener {
 
@@ -33,7 +32,8 @@ public class GameSelectActivity extends Activity implements android.view.View.On
 	}
 
 	public void onClick(View v) {
-
+		
+		//Select game mode and open GameActivity.class
 		switch (v.getId()) {	
 		case R.id.goldminemode:
 			selectGameMode("goldmine");
@@ -50,7 +50,7 @@ public class GameSelectActivity extends Activity implements android.view.View.On
 		Intent intent = new Intent(this, GameActivity.class);
 		Bundle b = new Bundle();
 		b.putString("gamemode", gamemode);
-		intent.putExtras(b); //Put your id to your next Intent
+		intent.putExtras(b); 
 		startActivity(intent);
 		finish();
 	}

@@ -72,7 +72,7 @@ public class PlayerView extends View {
 		
 		canvas.drawText(getName(), startName, 35, namePaint);
 		
-		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.cow);
+		Bitmap bm = BitmapFactory.decodeResource(getResources(), player.getImage());
 		
 		canvas.drawBitmap(bm, 7, 50, namePaint);
 		

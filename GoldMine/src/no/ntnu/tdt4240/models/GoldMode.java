@@ -4,7 +4,6 @@ import no.ntnu.tdt4240.activities.GameActivity;
 import no.ntnu.tdt4240.views.Blank;
 import no.ntnu.tdt4240.views.Cell;
 import no.ntnu.tdt4240.views.Gold;
-import no.ntnu.tdt4240.views.Mine;
 
 public class GoldMode extends GameMode{
 	

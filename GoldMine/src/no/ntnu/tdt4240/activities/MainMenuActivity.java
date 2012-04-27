@@ -25,7 +25,7 @@ android.view.View.OnClickListener {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.main);
 
-		// Click-handlers for buttons
+		// Get all menu items and make them look alike and set listener
 		TextView newgameButton = (TextView) findViewById(R.id.new_button);
 		TextView settingsButton = (TextView) findViewById(R.id.settings_button);
 		TextView instructionsButton = (TextView) findViewById(R.id.instructions_button);
@@ -42,7 +42,10 @@ android.view.View.OnClickListener {
 		BackgroundMusic.loadSound(this);
 		BackgroundMusic.playMusic();
 	}
-
+	
+	/** 
+	 * Makes every textButton look alike
+	 */
 	private void initiateMenuElement(TextView textButton) {
 		Typeface tf = Typeface.createFromAsset(getAssets(), "font/baveuse.otf");
 		textButton.setTextColor(getResources().getColor(R.color.supergold));
@@ -51,6 +54,9 @@ android.view.View.OnClickListener {
 		textButton.setTextSize(40);
 	}
 
+	/**
+	 *  Handles click on menu items and direct to right activiy
+	 */
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_button:

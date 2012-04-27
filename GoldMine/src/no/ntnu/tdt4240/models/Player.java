@@ -1,6 +1,6 @@
 package no.ntnu.tdt4240.models;
 
-import android.content.Context;
+import no.ntnu.tdt4240.R;
 import no.ntnu.tdt4240.views.PlayerView;
 
 public class Player {
@@ -8,10 +8,12 @@ public class Player {
 	private String name;
 	private int score;
 	private PlayerView view;
+	private int image;
 	
 	public Player(String name) {
 		this.name = name;
 		score = 0;
+		image = R.drawable.cow;
 	}
 	
 	public void addToScore(int scoreChange){
@@ -43,14 +45,12 @@ public class Player {
 		return name;
 	}
 
-	public void makeActive(Context context) {
-//		view.makeActive(context);
-//		view.invalidate();
+	public void setImage(int image){
+		this.image = image;
 	}
-
-	public void makeDeactive(Context context) {
-//		view.makeDeactive(context);
-//		view.invalidate();
+	
+	public int getImage() {
+		return image;
 	}
 	
 }

@@ -96,6 +96,9 @@ public class GameBoard {
 		return getCell(pos / numberOfCols, pos % numberOfCols);
 	}
 
+	/*
+	 * Recursive function that does ripple effect from rom,col
+	 */
 	public void rippleFrom(int row, int col) {
 		for (int y = row - 1; y <= row + 1; y++) { 
 			for (int x = col - 1; x <= col + 1; x++) { 

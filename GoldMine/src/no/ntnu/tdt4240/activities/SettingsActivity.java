@@ -8,11 +8,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.ListView;
-import android.widget.Toast;
 
 public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
