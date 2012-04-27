@@ -21,4 +21,18 @@
 	</string>
 	<string name="tryagain">Try again</string>
 	<string name="mainmenu">Main Menu</string>
+	<string name="goldmine_instructions">
+	    In GoldMine mode your objective is to score as many points as possible 
+	    by finding and clicking the cells containing gold and avoiding the cells containing mines. The golden 
+	    number indicates how many adjacent gold cells this cell has. The grey number indicates how many adjacent
+	    mines this cell has. Players take turn and the one with the highest score when there is no more gold left 
+	    is the winner. Every time you click a gold cell you get an extra click. Good luck!
+	</string>
+	<string name="puregold_instructions">
+	    In Pure Gold Mode your objective is to score as many points as possible by finding 
+	    and clicking the cells containing gold. The golden number in each cell indicates 
+	    how many adjacent gold cells this cell has. Players take turn  and the one with 
+	    the highest score when there is no more gold left is the winner. Every time you 
+	    find gold you get an extra click. Good luck!
+    </string>
 </resources>
