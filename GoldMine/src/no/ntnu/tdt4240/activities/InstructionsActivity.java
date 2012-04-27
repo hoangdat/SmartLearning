@@ -16,14 +16,12 @@ public class InstructionsActivity extends TabActivity {
 		 
         TabHost tabHost = getTabHost();
  
-        // Tab for Photos
         TabSpec puregoldspec = tabHost.newTabSpec("Pure Gold");
         // setting Title and Icon for the Tab
         puregoldspec.setIndicator("Pure Gold", getResources().getDrawable(R.drawable.gold));
         Intent photosIntent = new Intent(this, PureGoldInstructionActivity.class);
         puregoldspec.setContent(photosIntent);
  
-        // Tab for Songs
         TabSpec goldminespec = tabHost.newTabSpec("GoldMine");
         goldminespec.setIndicator("GoldMine", getResources().getDrawable(R.drawable.wormsmine));
         Intent songsIntent = new Intent(this, GoldMineInstructionActivity.class);
