@@ -17,7 +17,7 @@ public class Sounds{
 	private static int blank;
 	private static MediaPlayer music;
 	private static boolean soundEnabled;
-
+	
 	public static void loadSound(Context context) {
 		soundEnabled = SettingsActivity.isSoundEnabled(context);
 		soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
